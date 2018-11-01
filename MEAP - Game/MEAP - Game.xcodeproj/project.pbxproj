@@ -18,6 +18,7 @@
 		B17B4EAD2182650B00F8101A /* MEAP___GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */; };
 		B17B4EB82182650C00F8101A /* MEAP___GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */; };
 		B17B4EC6218266A800F8101A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EC5218266A800F8101A /* GameManager.swift */; };
+		C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameUITests.swift"; sourceTree = "<group>"; };
 		B17B4EB92182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EC5218266A800F8101A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				B17B4E9E2182650B00F8101A /* Assets.xcassets */,
 				B17B4EA02182650B00F8101A /* LaunchScreen.storyboard */,
 				B17B4EA32182650B00F8101A /* Info.plist */,
+				C5B4FFB6218A8B9400E6899B /* Music */,
 				B17B4EC5218266A800F8101A /* GameManager.swift */,
 			);
 			path = "MEAP - Game";
@@ -135,6 +138,14 @@
 				B17B4EB92182650C00F8101A /* Info.plist */,
 			);
 			path = "MEAP - GameUITests";
+			sourceTree = "<group>";
+		};
+		C5B4FFB6218A8B9400E6899B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,11 @@
 				TargetAttributes = {
 					B17B4E8D2182650A00F8101A = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					B17B4EA72182650B00F8101A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -244,6 +260,7 @@
 				B17B4E9D2182650A00F8101A /* Main.storyboard in Resources */,
 				B17B4E942182650A00F8101A /* GameScene.sks in Resources */,
 				B17B4E9F2182650B00F8101A /* Assets.xcassets in Resources */,
+				C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */,
 				B17B4EA22182650B00F8101A /* LaunchScreen.storyboard in Resources */,
 				B17B4E962182650A00F8101A /* Actions.sks in Resources */,
 			);

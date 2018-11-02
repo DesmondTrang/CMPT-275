@@ -78,6 +78,7 @@ class GameManager{
     }
     
     func FinishPatternCompletionRound(){
+        gameStage = 2
         gameBoardUserAnswers.append(currentGameBoard)
         timeUpdate.invalidate()
         CalculateScore()
@@ -95,7 +96,9 @@ class GameManager{
     }
     
     @objc func UpdateTimer(){
-        timer += 1
+        if(paused == false){
+            timer += 1
+        }
     }
     
     

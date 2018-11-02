@@ -43,8 +43,50 @@ class GameScene: SKScene {
             x = CGFloat((width / 4)+50)
             y -= cellWidth
         }
-        
-        
+    }
+    
+    func InitiateSummary(){
+        self.removeAllChildren()
+        let height = screenSize.height
+        let width = screenSize.width
+        var x1 = CGFloat(50)
+        var x2 = CGFloat(600)
+        var y = CGFloat(height*(3/4)-40)
+        for i in 0...9{
+            for j in 0...9{
+                let node = SKShapeNode(rectOf: CGSize(width: 50, height: 50))
+                let node1 = SKShapeNode(rectOf: CGSize(width: 50, height: 50))
+                node.position = CGPoint(x: x1, y: y)
+                node1.position = CGPoint(x: x2, y: y)
+                
+                if(game.gameBoardSolutions[0].board[i][j] == "red"){
+                    node.fillColor = SKColor.red
+                }
+                else{
+                    node.fillColor = SKColor.blue
+                }
+                
+                if(game.gameBoardUserAnswers[0].board[i][j] == "red"){
+                    node1.fillColor = SKColor.red
+                }
+                else if(game.gameBoardUserAnswers[0].board[i][j] == "blue"){
+                    node1.fillColor = SKColor.blue
+                }
+                else{
+                    node1.fillColor = SKColor.orange
+                }
+                
+                
+                self.addChild(node)
+                self.addChild(node1)
+                x1 += cellWidth
+                x2 += cellWidth
+                
+            }
+            x1 = CGFloat(50)
+            x2 = CGFloat(600)
+            y -= cellWidth
+        }
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -53,7 +95,7 @@ class GameScene: SKScene {
         let x = Int(floor(((pos.x - ((width/4)+25))/50)))
         let y = Int(floor(((pos.y - (height-(height*(1/4)+508))))/50))
         if(x>=0 && x<=9 && y>0 && y<=10 && game.gameStage == 1){
-            if(game.currentGameBoard.board[x][10-y] == "blue"){
+            if(game.currentGameBoard.board[x][10-y] == "blue" && game.cellRemaining>0){
                 game.currentGameBoard.board[x][10-y] = "red"
                 game.cellRemaining -= 1
                 //board[10-y][x].fillColor = SKColor.red

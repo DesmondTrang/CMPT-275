@@ -14,9 +14,12 @@ class GameViewController: UIViewController {
     ///Instances
     var audioPlayer: AVAudioPlayer!;
     
+    @IBOutlet weak var muted: UIButton!
+    @IBOutlet weak var Unmuted: UIButton!
     @IBOutlet weak var Number: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var startingLabel: UIImageView!
+    @IBOutlet weak var menuView: UIView!
     var countDownTimer:Timer!
     
     override func viewDidLoad() {
@@ -70,6 +73,23 @@ class GameViewController: UIViewController {
     
     //Quit Game Button
     @IBAction func quitGame(_ sender: Any) {
+    }
+    
+    @IBAction func Menu(_ sender: Any) {
+        menuView.isHidden = false
+    }
+ 
+    @IBAction func Return(_ sender: Any) {
+        menuView.isHidden = true
+    }
+    @IBAction func Mute(_ sender: Any) {
+        Unmuted.isHidden = true
+        muted.isHidden = false
+    }
+    
+    @IBAction func Unmute(_ sender: Any) {
+        Unmuted.isHidden = true
+        muted.isHidden = true
     }
     
     

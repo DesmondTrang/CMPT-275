@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     ///Instances
     var audioPlayer: AVAudioPlayer!;
     
+    @IBOutlet weak var historyView: UIView!
+    @IBOutlet weak var muteText: UIButton!
     @IBOutlet weak var muted: UIButton!
     @IBOutlet weak var Unmuted: UIButton!
     @IBOutlet weak var Number: UILabel!
@@ -24,22 +26,13 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Play Background Music
-        do {
-            //Plays "backgroundMusic.mp3"
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic", ofType: ".mp3")!))
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
-        }
-        catch{
-            print(error);
-        }
+            
     }
 
     override var shouldAutorotate: Bool {
         return true
     }
+    
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -54,27 +47,6 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    //Play Music Button
-    @IBAction func musicOn(_ sender: Any) {
-        audioPlayer.currentTime = 0;
-        audioPlayer.play()
-    }
-    
-    //Music Off Button
-    @IBAction func musicOff(_ sender: Any) {
-        if (audioPlayer.isPlaying)
-        {
-            audioPlayer.pause();
-        }
-    }
-    //History Button
-    @IBAction func historyButton(_ sender: Any) {
-        
-    }
-    
-    //Quit Game Button
-    @IBAction func quitGame(_ sender: Any) {
-    }
     
     @IBAction func Menu(_ sender: Any) {
         menuView.isHidden = false
@@ -83,16 +55,14 @@ class GameViewController: UIViewController {
     @IBAction func Return(_ sender: Any) {
         menuView.isHidden = true
     }
-    @IBAction func Mute(_ sender: Any) {
-        Unmuted.isHidden = true
-        muted.isHidden = false
+    
+    @IBAction func ReturnToMenu(_ sender: Any) {
+        historyView.isHidden = true
     }
     
-    @IBAction func Unmute(_ sender: Any) {
-        Unmuted.isHidden = true
-        muted.isHidden = true
+    @IBAction func History(_ sender: Any) {
+        historyView.isHidden = false
     }
-    
     
     @IBAction func startButton(_ sender: Any) {
         startButton.isHidden = true

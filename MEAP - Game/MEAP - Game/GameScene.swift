@@ -29,9 +29,9 @@ class GameScene: SKScene {
         let width = screenSize.width
         var x = CGFloat((width / 4)+50)
         var y = CGFloat(height*(3/4)+20)
-        for i in 0...9{
+        for _ in 0...9{
             var boardArray = [SKShapeNode]()
-            for j in 0...9{
+            for _ in 0...9{
                 let node = SKShapeNode(rectOf: CGSize(width: 50, height: 50))
                 node.fillColor = SKColor.blue
                 node.position = CGPoint(x: x, y: y)
@@ -48,7 +48,6 @@ class GameScene: SKScene {
     func InitiateSummary(){
         self.removeAllChildren()
         let height = screenSize.height
-        let width = screenSize.width
         var x1 = CGFloat(50)
         var x2 = CGFloat(600)
         var y = CGFloat(height*(3/4)-40)

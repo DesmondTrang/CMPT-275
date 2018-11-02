@@ -8,13 +8,14 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
+
 
 class PCViewController: UIViewController {
 
+    var audioPlayer: AVAudioPlayer!;
     @IBOutlet weak var bestValue: UILabel!
     @IBOutlet weak var best: UILabel!
-    @IBOutlet weak var Unmuted: UIButton!
-    @IBOutlet weak var muted: UIButton!
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var scoreValue: UILabel!
     @IBOutlet weak var nextButton: UIButton!
@@ -24,6 +25,7 @@ class PCViewController: UIViewController {
     @IBOutlet weak var PClabel: UILabel!
     @IBOutlet weak var pausedView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var muteMusic: UIButton!
     var cellChecker: Timer!
     
     var scene: GameScene!
@@ -36,6 +38,20 @@ class PCViewController: UIViewController {
         
         skView.presentScene(scene)
         // Do any additional setup after loading the view.
+        
+        do {
+            //Plays "backgroundMusic.mp3"
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic", ofType: ".mp3")!))
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
+        catch{
+            print(error);
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        audioPlayer.stop()
     }
     
     @IBAction func Pause(_ sender: Any) {
@@ -43,19 +59,9 @@ class PCViewController: UIViewController {
         scene.game.paused = true
     }
     
-    @IBAction func Resume(_ sender: Any) {
-        scene.game.paused = false
+    @IBAction func ResumeGame(_ sender: Any) {
         pausedView.isHidden = true
-    }
-    
-    @IBAction func Mute(_ sender: Any) {
-        muted.isHidden = false
-        Unmuted.isHidden = true
-    }
-    
-    @IBAction func Unmute(_ sender: Any) {
-        muted.isHidden = true
-        Unmuted.isHidden = false
+        scene.game.paused = false
     }
     
     @IBAction func Start(_ sender: Any) {
@@ -73,6 +79,18 @@ class PCViewController: UIViewController {
         }
         else{
             nextButton.isEnabled = false
+        }
+    }
+
+    @IBAction func MuteMusic(_ sender: Any) {
+        if(audioPlayer.isPlaying == true){
+            audioPlayer.stop()
+            muteMusic.setTitle("Play Music", for: .normal)
+        }
+        else {
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+            muteMusic.setTitle("Mute Music", for: .normal)
         }
     }
     
@@ -93,6 +111,7 @@ class PCViewController: UIViewController {
         scene.game.FinishPatternCompletionRound()
         scene.InitiateSummary()
         scoreValue.text = String(scene.game.score)
+        bestValue.text = String(scene.game.score)
     }
     
 

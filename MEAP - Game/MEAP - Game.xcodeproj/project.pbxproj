@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92294F1A218ADEC700630436 /* PCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92294F19218ADEC700630436 /* PCViewController.swift */; };
 		B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4E912182650A00F8101A /* AppDelegate.swift */; };
 		B17B4E942182650A00F8101A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E932182650A00F8101A /* GameScene.sks */; };
 		B17B4E962182650A00F8101A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E952182650A00F8101A /* Actions.sks */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92294F19218ADEC700630436 /* PCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCViewController.swift; sourceTree = "<group>"; };
 		B17B4E8E2182650A00F8101A /* MEAP - Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MEAP - Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17B4E912182650A00F8101A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B17B4E932182650A00F8101A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				B17B4E932182650A00F8101A /* GameScene.sks */,
 				B17B4E952182650A00F8101A /* Actions.sks */,
 				B17B4E972182650A00F8101A /* GameScene.swift */,
+				92294F19218ADEC700630436 /* PCViewController.swift */,
 				B17B4E992182650A00F8101A /* GameViewController.swift */,
 				B17B4E9B2182650A00F8101A /* Main.storyboard */,
 				B17B4E9E2182650B00F8101A /* Assets.xcassets */,
@@ -290,6 +293,7 @@
 				B17B4E982182650A00F8101A /* GameScene.swift in Sources */,
 				B17B4EC6218266A800F8101A /* GameManager.swift in Sources */,
 				B17B4E9A2182650A00F8101A /* GameViewController.swift in Sources */,
+				92294F1A218ADEC700630436 /* PCViewController.swift in Sources */,
 				B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

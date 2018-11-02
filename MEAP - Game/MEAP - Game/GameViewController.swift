@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SpriteKit
-import GameplayKit
 import AVFoundation
 
 class GameViewController: UIViewController {
@@ -16,24 +14,13 @@ class GameViewController: UIViewController {
     ///Instances
     var audioPlayer: AVAudioPlayer!;
     
+    @IBOutlet weak var Number: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var startingLabel: UIImageView!
+    var countDownTimer:Timer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
         
         //Play Background Music
         do {
@@ -83,6 +70,30 @@ class GameViewController: UIViewController {
     
     //Quit Game Button
     @IBAction func quitGame(_ sender: Any) {
+    }
+    
+    
+    @IBAction func startButton(_ sender: Any) {
+        startButton.isHidden = true
+        startingLabel.isHidden = false
+        Number.isHidden = false
+        Number.text = "3"
+        countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+    
+    }
+    
+    @objc func countDown(){
+        if(Number.text == "3"){
+            Number.text = "2"
+        }
+        else if(Number.text == "2"){
+            Number.text = "1"
+        }
+        else{
+            countDownTimer.invalidate()
+            performSegue(withIdentifier: "StartPC", sender: self)
+            //segue to game screen
+        }
     }
     
     override var prefersStatusBarHidden: Bool {

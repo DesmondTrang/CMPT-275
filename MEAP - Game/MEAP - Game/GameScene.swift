@@ -59,17 +59,17 @@ class GameScene: SKScene {
                 node.position = CGPoint(x: x1, y: y)
                 node1.position = CGPoint(x: x2, y: y)
                 
-                if(game.gameBoardSolutions[0].board[i][j] == "red"){
+                if(game.gameBoardSolutions[0].board[j][i] == "red"){
                     node.fillColor = SKColor.red
                 }
                 else{
                     node.fillColor = SKColor.blue
                 }
                 
-                if(game.gameBoardUserAnswers[0].board[i][j] == "red"){
+                if(game.gameBoardUserAnswers[0].board[j][i] == "red"){
                     node1.fillColor = SKColor.red
                 }
-                else if(game.gameBoardUserAnswers[0].board[i][j] == "blue"){
+                else if(game.gameBoardUserAnswers[0].board[j][i] == "blue"){
                     node1.fillColor = SKColor.blue
                 }
                 else{
@@ -97,12 +97,12 @@ class GameScene: SKScene {
         if(x>=0 && x<=9 && y>0 && y<=10 && game.gameStage == 1){
             if(game.currentGameBoard.board[x][10-y] == "blue" && game.cellRemaining>0){
                 game.currentGameBoard.board[x][10-y] = "red"
-                game.cellRemaining -= 1
+                game.cellRemaining = game.cellRemaining - 1
                 //board[10-y][x].fillColor = SKColor.red
             }
             else if(game.currentGameBoard.board[x][10-y] == "red"){
                 game.currentGameBoard.board[x][10-y] = "blue"
-                game.cellRemaining += 1
+                game.cellRemaining = game.cellRemaining + 1
                 //board[10-y][x].fillColor = SKColor.blue
             }
         }

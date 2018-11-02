@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
             //Plays "backgroundMusic.mp3"
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic", ofType: ".mp3")!))
             audioPlayer.prepareToPlay()
+            audioPlayer.play()
         }
         catch{
             print(error);

@@ -97,7 +97,7 @@ class GameManager{
     
     @objc func UpdateTimer(){
         if(paused == false){
-            timer += 1
+            timer = timer + 1
         }
     }
     

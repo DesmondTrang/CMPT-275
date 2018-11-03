@@ -11,14 +11,8 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    ///Instances
-    var audioPlayer: AVAudioPlayer!;
-    
     @IBOutlet weak var historyView: UIView!
-    @IBOutlet weak var muteText: UIButton!
-    @IBOutlet weak var muted: UIButton!
-    @IBOutlet weak var Unmuted: UIButton!
-    @IBOutlet weak var Number: UILabel!
+    @IBOutlet weak var number: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var startingLabel: UIImageView!
     @IBOutlet weak var menuView: UIView!
@@ -71,19 +65,19 @@ class GameViewController: UIViewController {
     @IBAction func startButton(_ sender: Any) {
         startButton.isHidden = true
         startingLabel.isHidden = false
-        Number.isHidden = false
-        Number.text = "3"
+        number.isHidden = false
+        number.text = "3"
         countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
     
     }
     
     //Countes down to 1 and segue to game view
     @objc func countDown(){
-        if(Number.text == "3"){
-            Number.text = "2"
+        if(number.text == "3"){
+            number.text = "2"
         }
-        else if(Number.text == "2"){
-            Number.text = "1"
+        else if(number.text == "2"){
+            number.text = "1"
         }
         else{
             countDownTimer.invalidate()

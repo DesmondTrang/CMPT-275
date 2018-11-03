@@ -16,13 +16,13 @@ class PCViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!;
     @IBOutlet weak var bestValue: UILabel!
     @IBOutlet weak var best: UILabel!
-    @IBOutlet weak var PageControl: UIPageControl!
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scoreValue: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var nextArrow: UIButton!
-    @IBOutlet weak var PatternCompletion: UILabel!
-    @IBOutlet weak var PClabel: UILabel!
+    @IBOutlet weak var patternCompletion: UILabel!
+    @IBOutlet weak var pClabel: UILabel!
     @IBOutlet weak var pausedView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var muteMusic: UIButton!
@@ -73,13 +73,13 @@ class PCViewController: UIViewController {
         startBtn.isHidden = true
         nextButton.isHidden = false
         scene.game.StartPatternCompletion()
-        PClabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
+        pClabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
         cellChecker = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(nextButtonEnable), userInfo: nil, repeats: true)
     }
     
     //Updates whether the next button is disabled or not
     @objc func nextButtonEnable(){
-        PClabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
+        pClabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
         if(scene.game.cellRemaining == 0){
             nextButton.isEnabled = true
         }
@@ -105,9 +105,9 @@ class PCViewController: UIViewController {
     //Screen objects are moved and updated
     @IBAction func nextButton(_ sender: Any) {
         nextButton.isHidden = true
-        PatternCompletion.text = "SCORES"
-        PClabel.isHidden = true
-        PageControl.isHidden = false
+        patternCompletion.text = "SCORES"
+        pClabel.isHidden = true
+        pageControl.isHidden = false
         nextArrow.isHidden = false
         scoreValue.center.x += 100
         scoreValue.center.y -= 150

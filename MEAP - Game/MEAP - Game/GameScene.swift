@@ -13,11 +13,13 @@ class GameScene: SKScene {
    
     var touch: UITouch!
     var game: GameManager!
+    var customBackGroundColor = UIColor(named: "backgroundColor")!
     let screenSize = UIScreen.main.bounds.size
     let cellWidth: CGFloat =  50
     var board = [[SKShapeNode]]()
     override func didMove(to view: SKView) {
         
+        self.backgroundColor = customBackGroundColor
         game = GameManager(scene: self)
         InitiateBoard()
     }

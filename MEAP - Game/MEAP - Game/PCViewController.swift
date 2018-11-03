@@ -85,12 +85,12 @@ class PCViewController: UIViewController {
     @IBAction func MuteMusic(_ sender: Any) {
         if(audioPlayer.isPlaying == true){
             audioPlayer.stop()
-            muteMusic.setTitle("Play Music", for: .normal)
+            muteMusic.setImage(UIImage(named: "PlayMusic"), for: .normal)
         }
         else {
             audioPlayer.prepareToPlay()
             audioPlayer.play()
-            muteMusic.setTitle("Mute Music", for: .normal)
+            muteMusic.setImage(UIImage(named: "MuteMusic"), for: .normal)
         }
     }
     

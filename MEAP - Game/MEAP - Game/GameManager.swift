@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameManager{
     
+    //Class for cell of the grid board
     class boardCell{
         var x: Int
         var y: Int
@@ -21,6 +22,7 @@ class GameManager{
         }
     }
     
+    //Class Ccntaining the game board
     class gameBoard{
         var board = [[String]]()
         init(boardInfo: [boardCell]){
@@ -55,7 +57,8 @@ class GameManager{
         InitializePatternCompletion()
     }
     
-    func InitalizeGame(){
+    //Initalizes variables for start of game
+    private func InitalizeGame(){
         score = 0
         timer = 0
         gameStage = 0
@@ -65,11 +68,13 @@ class GameManager{
         //currentRound = 0
     }
     
+    //Initializes gameboard for pattern completion game mode
     func InitializePatternCompletion(){
         currentGameBoard = gameBoard(boardInfo: rounds[0])
         gameBoardSolutions.append(currentGameBoard)
     }
     
+    //Starts phase of game where user is able to tap squares of the board and starts timer
     func StartPatternCompletion(){
         gameStage = 1
         currentGameBoard = gameBoard(boardInfo: startRounds[0])
@@ -77,6 +82,7 @@ class GameManager{
         timeUpdate = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
     }
     
+    //Finishs round of pattern Completion. Ends timer and Calculates score
     func FinishPatternCompletionRound(){
         gameStage = 2
         gameBoardUserAnswers.append(currentGameBoard)
@@ -84,6 +90,7 @@ class GameManager{
         CalculateScore()
     }
     
+    //Calculates score depending on time and correctness
     private func CalculateScore(){
         let total = rounds[0].count
         var count = 0;
@@ -95,6 +102,7 @@ class GameManager{
         score = timer + (count/total)*100
     }
     
+    //Increments timer if not paused
     @objc func UpdateTimer(){
         if(paused == false){
             timer = timer + 1

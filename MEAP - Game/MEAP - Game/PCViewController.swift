@@ -30,6 +30,7 @@ class PCViewController: UIViewController {
     
     var scene: GameScene!
     
+    //Loads GameScene into UIView and initalizes music player
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,20 +51,24 @@ class PCViewController: UIViewController {
         }
     }
     
+    //Stops music when screen is left
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         audioPlayer.stop()
     }
     
+    //Displays pause screen and pauses game
     @IBAction func Pause(_ sender: Any) {
         pausedView.isHidden = false
         scene.game.paused = true
     }
     
+    //Hides pause screen and resumes game
     @IBAction func ResumeGame(_ sender: Any) {
         pausedView.isHidden = true
         scene.game.paused = false
     }
     
+    //Starts Phase 2 of pattern completion
     @IBAction func Start(_ sender: Any) {
         startBtn.isHidden = true
         nextButton.isHidden = false
@@ -72,6 +77,7 @@ class PCViewController: UIViewController {
         cellChecker = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(nextButtonEnable), userInfo: nil, repeats: true)
     }
     
+    //Updates whether the next button is disabled or not
     @objc func nextButtonEnable(){
         PClabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
         if(scene.game.cellRemaining == 0){
@@ -82,6 +88,7 @@ class PCViewController: UIViewController {
         }
     }
 
+    //Mutes or plays music
     @IBAction func MuteMusic(_ sender: Any) {
         if(audioPlayer.isPlaying == true){
             audioPlayer.stop()
@@ -94,6 +101,8 @@ class PCViewController: UIViewController {
         }
     }
     
+    //Takes user to game summary screen.
+    //Screen objects are moved and updated
     @IBAction func nextButton(_ sender: Any) {
         nextButton.isHidden = true
         PatternCompletion.text = "SCORES"
@@ -113,16 +122,5 @@ class PCViewController: UIViewController {
         scoreValue.text = String(scene.game.score)
         bestValue.text = String(scene.game.score)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -47,23 +47,27 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    
+    //Unhides Menu View
     @IBAction func Menu(_ sender: Any) {
         menuView.isHidden = false
     }
  
+    //Hides Menu
     @IBAction func Return(_ sender: Any) {
         menuView.isHidden = true
     }
     
-    @IBAction func ReturnToMenu(_ sender: Any) {
-        historyView.isHidden = true
-    }
-    
+    //Shows History view
     @IBAction func History(_ sender: Any) {
         historyView.isHidden = false
     }
     
+    //Hides History view
+    @IBAction func ReturnToMenu(_ sender: Any) {
+        historyView.isHidden = true
+    }
+    
+    //Starts game countdown
     @IBAction func startButton(_ sender: Any) {
         startButton.isHidden = true
         startingLabel.isHidden = false
@@ -73,6 +77,7 @@ class GameViewController: UIViewController {
     
     }
     
+    //Countes down to 1 and segue to game view
     @objc func countDown(){
         if(Number.text == "3"){
             Number.text = "2"

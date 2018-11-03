@@ -17,6 +17,7 @@ class GameScene: SKScene {
     let screenSize = UIScreen.main.bounds.size
     let cellWidth: CGFloat =  50
     var board = [[SKShapeNode]]()
+    
     override func didMove(to view: SKView) {
         
         self.backgroundColor = customBackGroundColor
@@ -25,7 +26,7 @@ class GameScene: SKScene {
     }
     
 
-    
+    //Creates empty board
     func InitiateBoard(){
         let height = screenSize.height
         let width = screenSize.width
@@ -47,6 +48,7 @@ class GameScene: SKScene {
         }
     }
     
+    //Creates two separate boards containing the solution and user's answer side by side
     func InitiateSummary(){
         self.removeAllChildren()
         let height = screenSize.height
@@ -90,6 +92,7 @@ class GameScene: SKScene {
         }
     }
     
+    //Calculates which specific cell was tapped by user and updates cell/cell Count
     func touchDown(atPoint pos : CGPoint) {
         let height = screenSize.height
         let width = screenSize.width
@@ -109,10 +112,13 @@ class GameScene: SKScene {
         }
     }
     
+    //IOS function for tapping the screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
+    //IOS function that updates board every frame
+    //i and j are flipped because of how 2-D array was initialized
     override func update(_ currentTime: TimeInterval) {
         for i in 0...9{
             for j in 0...9{

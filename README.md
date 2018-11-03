@@ -1,4 +1,4 @@
-# CMPT 275
+# CMPT 275 - MEAP
 
 How to Add Repository from Git
 1. Using terminal, cd into desired location to place the repository

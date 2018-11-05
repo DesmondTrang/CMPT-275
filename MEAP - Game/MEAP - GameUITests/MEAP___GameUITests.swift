@@ -137,6 +137,26 @@ class MEAPUITest: XCTestCase {
         checkButtonExists(buttonLabel: "How To")
     }
     
+    func testCheckTutorialPage() {
+        
+        // Description: Verify that all elements in the Tutorial Screen are present.
+        //
+        // Expected: Text: "HOW - TO"
+        //           Buttons: "Back Arrow", "Pattern Completion Button"
+        //
+        // Steps:    1) Open Meap app
+        //           2) Click "How To" button
+        //           3) Verify elements
+        
+        // Pre-Condition
+        clickButton(buttonLabel: "How To")
+        
+        // Verify
+        checkTextExists(labelText: "HOW - TO")
+        checkButtonExists(buttonLabel: "Pattern Completion Button")
+        checkButtonExists(buttonLabel: "Back Arrow")
+    }
+    
     func testStartButton() {
         
         // Verify that clicking the "Start" button will initiate the countdown timer
@@ -280,6 +300,30 @@ class MEAPUITest: XCTestCase {
     // Format: Description
     //         Expected Elements
     //         Steps for manual reproduction
+    
+    func testReturnFromTutorial() {
+        
+        // Test that the back arrow is able to transition app
+        // from Tutorial Screen back to Home Screen.
+        //
+        // Expected: Text: "MEAP"
+        //           Expected: Text: "MEAP"
+        //           Buttons: "Menu", "How To", "Start"
+        //
+        // Steps:    1) Open MEAP app
+        //           2) Click "How To" Button
+        //           3) Click "Back Arrow" Button
+        
+        // Pre-Condition
+        clickButton(buttonLabel: "How To")
+        clickButton(buttonLabel: "Back Arrow")
+        
+        // Verify
+        checkTextExists(labelText: "MEAP")
+        checkButtonExists(buttonLabel: "Menu")
+        checkButtonExists(buttonLabel: "How To")
+        checkButtonExists(buttonLabel: "Start")
+    }
     
     func testResumeGame() {
         

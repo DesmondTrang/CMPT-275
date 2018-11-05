@@ -100,8 +100,8 @@ class GameManager{
             }
         }
         
-        let temp = 5*((Double(count)/Double(total-startRounds[0].count)) - (0.005*timer))
-        score = Int(pow(2.718,temp))
+        let temp = 5*(((Double(count)/Double(total-startRounds[0].count)) - (0.005*timer)))
+        score = Int(round(pow(2.718,temp)))
     }
     
     //Increments timer if not paused

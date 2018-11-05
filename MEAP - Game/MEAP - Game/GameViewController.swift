@@ -72,6 +72,13 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func Tutorial(_ sender: Any) {
+        if(countDownTimer != nil){
+            countDownTimer.invalidate()
+        }
+        number.text = "3"
+        number.isHidden = true
+        startingLabel.isHidden = true
+        startButton.isHidden = false
         tutorialView.isHidden = false
         PlayVideo()
     }
@@ -84,7 +91,14 @@ class GameViewController: UIViewController {
     
     //Unhides Menu View
     @IBAction func Menu(_ sender: Any) {
+        if(countDownTimer != nil){
+            countDownTimer.invalidate()
+        }
+        number.text = "3";
+        number.isHidden = true
+        startButton.isHidden = false
         menuView.isHidden = false
+        startingLabel.isHidden = true
     }
  
     //Hides Menu

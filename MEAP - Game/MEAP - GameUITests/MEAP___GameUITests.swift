@@ -1,4 +1,15 @@
-//___FILEHEADER___
+// Meap__GameUITests.swift
+//
+// Worked on by: Desmond Trang
+// Team Name: Meaps
+//
+// Changlog: - Created helper functions, Nov 1st 2018
+//           - Created verification test cases, Nov 3rd 2018
+//           - Created game play test cases, Nov 4th 2018
+//
+// Known Bugs: - Could not call functions on GameScene.swift so I created
+//               a workaround by tapping on coordinate on the game board
+//             - Test cases were failing because of searching for misnamed labels
 
 import XCTest
 

@@ -5,19 +5,28 @@
 //  Created by Angus  on 2018-11-01.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
+//  Programmers: Angus Chen
+//  UI Created By: Desmond Trang
+//  Team: CMPT 275 Team 7 - MEAP
+//  Changes: -File Created - 11/1/18
+//           -File Completed - 11/2/18
+//           -Fixed Bug - 11/4/18
+//           -Fixed Bug - 11/5/18
+//  Known Bugs: NONE!
+
 
 import UIKit
 import SpriteKit
 import AVFoundation
 
-
+//Controls the Pattern Completion game view
 class PCViewController: UIViewController {
 
     var audioPlayer: AVAudioPlayer!;
-    @IBOutlet weak var bestValue: UILabel!
+    @IBOutlet weak var bestValue: UILabel! //Value of best score
     @IBOutlet weak var best: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var scoreValue: UILabel!
+    @IBOutlet weak var scoreValue: UILabel! //Value of score
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var nextArrow: UIButton!
@@ -32,9 +41,9 @@ class PCViewController: UIViewController {
     var playerItem: AVPlayerItem!
     var player: AVQueuePlayer!
     var screenSize = UIScreen.main.bounds.size
-    var cellChecker: Timer!
+    var cellChecker: Timer! //Timer used to update cells of the board
     
-    var scene: GameScene!
+    var scene: GameScene! //Instance of the game scene
     
     //Loads GameScene into UIView and initalizes music player
     override func viewDidLoad() {
@@ -57,9 +66,10 @@ class PCViewController: UIViewController {
         }
     }
     
-    //Loops Player
+    //plays and loops "Tutorial.mp4"
     private func PlayVideo(){
         
+        screenSize = UIScreen.main.bounds.size
         //Plays "Tutorial.mp4"
         playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
         
@@ -80,6 +90,8 @@ class PCViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         audioPlayer.stop()
     }
+    
+    //Return from tutorial screen
     @IBAction func Return(_ sender: Any) {
         tutorialView.isHidden = true
         playerLayer.removeFromSuperlayer()
@@ -87,12 +99,14 @@ class PCViewController: UIViewController {
         scene.game.paused = false
     }
     
+    //Brings up tutorial and plays tutorial video
     @IBAction func Tutorial(_ sender: Any) {
         scene.game.paused = true
         tutorialView.isHidden = false
         PlayVideo()
         
     }
+    
     //Displays pause screen and pauses game
     @IBAction func Pause(_ sender: Any) {
         pausedView.isHidden = false

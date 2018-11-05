@@ -5,9 +5,17 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
+//  Programmers: Angus Chen
+//  Team: CMPT 275 Team 7 - MEAP
+//  Changes: -File Created - 10/25/18
+//           -File Completed - 11/2/18
+//  Known Bugs: NONE!
+
+
 
 import SpriteKit
 
+//Manages the state of the game
 class GameManager{
     
     //Class for cell of the grid board
@@ -33,24 +41,28 @@ class GameManager{
         }
     }
     
+    //Contains information for the memorization phase board
     //In an array because future versions will contain multiple rounds
     var rounds = [[boardCell(X:5,Y:5,Color:"red"), boardCell(X:5,Y:4,Color:"red"), boardCell(X:5,Y:3,Color:"red"),boardCell(X:4,Y:3,Color:"red"),boardCell(X:3,Y:3,Color:"red")]]
+    
+    //Contains information for the partial pattern board
     var startRounds = [[boardCell(X:5,Y:5,Color:"orange"),boardCell(X:3,Y:3,Color:"orange")]]
     
     var scene: GameScene!
     var score: Int!
     var timer: Double!
-    var timeUpdate: Timer!
+    var timeUpdate: Timer! //Used to update timer
     var cellRemaining: Int!
     var gameStage: Int!
-    //var currentGameStage: Int!
     var paused: Bool!
-    //VErsion 2
+    //Version 2
     //var currentRound: UInt!
+    //var currentGameStage: Int!
     var currentGameBoard: gameBoard!
-    var gameBoardSolutions = [gameBoard]()
-    var gameBoardUserAnswers = [gameBoard]()
+    var gameBoardSolutions = [gameBoard]() //Stores solutions for summary and score calculation
+    var gameBoardUserAnswers = [gameBoard]() //Stores user answers for summary and score calulation
     
+    //Scene initalization
     init(scene: GameScene) {
         self.scene = scene
         InitalizeGame()

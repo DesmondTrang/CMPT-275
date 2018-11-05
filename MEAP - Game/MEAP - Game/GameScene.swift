@@ -5,19 +5,27 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
+//  Programmers: Angus Chen
+//  Team: CMPT 275 Team 7 - MEAP
+//  Changes: -File Created - 10/25/18
+//           -File Completed - 11/2/18
+//  Known Bugs: NONE!
+
 
 import SpriteKit
 import GameplayKit
 
+//Generates the boards and makes board interactable
 class GameScene: SKScene {
    
     var touch: UITouch!
-    var game: GameManager!
+    var game: GameManager! //Instance of game manager
     var customBackGroundColor = UIColor(named: "backgroundColor")!
-    let screenSize = UIScreen.main.bounds.size
-    let cellWidth: CGFloat =  50
+    let screenSize = UIScreen.main.bounds.size //Size of screen
+    let cellWidth: CGFloat =  50 //Width of cell of the board
     var board = [[SKShapeNode]]()
     
+    //Initializes Scene
     override func didMove(to view: SKView) {
         
         self.backgroundColor = customBackGroundColor
@@ -133,6 +141,5 @@ class GameScene: SKScene {
                 }
             }
         }
-        // Called before each frame is rendered
     }
 }

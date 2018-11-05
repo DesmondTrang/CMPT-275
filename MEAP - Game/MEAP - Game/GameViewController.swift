@@ -5,10 +5,19 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
+//  Programmers: Angus Chen
+//  UI Created By: Desmond Trang
+//  Team: CMPT 275 Team 7 - MEAP
+//  Changes: -File Created - 10/25/18
+//           -File Completed - 11/2/18
+//           -Fixed Bug - 11/4/18
+//  Known Bugs: NONE!
+
 
 import UIKit
 import AVFoundation
 
+//Controls the main menu story board
 class GameViewController: UIViewController {
     
     @IBOutlet weak var historyView: UIView!
@@ -17,7 +26,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var startingLabel: UIImageView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var tutorialView: UIView!
-    var countDownTimer:Timer!
+    var countDownTimer:Timer! //Timer used to count down
     var player: AVQueuePlayer!
     var screenSize = UIScreen.main.bounds.size
     var playerLooper: AVPlayerLooper!
@@ -26,12 +35,12 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
     }
     
-    //plays video and Loops Player
+    //plays and loops "Tutorial.mp4"
     private func PlayVideo(){
         
+        screenSize = UIScreen.main.bounds.size
         //Plays "Tutorial.mp4"
         playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
         
@@ -48,6 +57,7 @@ class GameViewController: UIViewController {
         
     }
 
+    //IOS Function to rotate screen
     override var shouldAutorotate: Bool {
         return true
     }
@@ -66,11 +76,13 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    //Brings up Tutorial from menu
     @IBAction func MenuTutorial(_ sender: Any) {
         tutorialView.isHidden = false
         PlayVideo()
     }
     
+    //Brings up tutorial from main screen
     @IBAction func Tutorial(_ sender: Any) {
         if(countDownTimer != nil){
             countDownTimer.invalidate()
@@ -83,6 +95,7 @@ class GameViewController: UIViewController {
         PlayVideo()
     }
     
+    //Exits Tutorial
     @IBAction func ExitTutorial(_ sender: Any) {
         tutorialView.isHidden = true
         playerLayer.removeFromSuperlayer()

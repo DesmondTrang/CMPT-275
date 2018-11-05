@@ -150,9 +150,9 @@ class MEAPUITest: XCTestCase {
         
         clickButton(buttonLabel: "Start")
         checkTextExists(labelText: "3")
-        sleep(1)
+        sleep(1) // countdown delay
         checkTextExists(labelText: "2")
-        sleep(1)
+        sleep(1) // countdown delay
         checkTextExists(labelText: "1")
         
     }
@@ -171,7 +171,7 @@ class MEAPUITest: XCTestCase {
         
         // Pre-Condition
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         
         // Verify
         checkTextExists(labelText: "Pattern Completion")
@@ -198,9 +198,9 @@ class MEAPUITest: XCTestCase {
 
         // Pre-Condition
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         clickButton(buttonLabel: "Pause Button")
-        sleep(1)
+        sleep(1) // button lag
         
         // Verify
         checkTextExists(labelText: "PAUSED")
@@ -226,9 +226,9 @@ class MEAPUITest: XCTestCase {
         
         // Pre-Condition
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         clickButton(buttonLabel: "Start Button")
-        sleep(1)
+        sleep(1) // button lag
         
         // Verify
         checkTextExists(labelText: "Pattern Completion")
@@ -257,7 +257,7 @@ class MEAPUITest: XCTestCase {
         
         // Pre-Condition
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         clickButton(buttonLabel: "Start Button")
         tapCoordinate(xCoordinate: 400, yCoordinate: 300)
         tapCoordinate(xCoordinate: 430, yCoordinate: 300)
@@ -299,11 +299,11 @@ class MEAPUITest: XCTestCase {
         
         // Testing Resume
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         clickButton(buttonLabel: "Pause Button")
-        sleep(1)
+        sleep(1) // button lag
         clickButton(buttonLabel: "Resume Button")
-        sleep(1)
+        sleep(1) // button lag
         
         // Verify
         checkTextExists(labelText: "Pattern Completion")
@@ -332,7 +332,7 @@ class MEAPUITest: XCTestCase {
         
         // Gameplay
         clickButton(buttonLabel: "Start")
-        sleep(5)
+        sleep(5) // countdown delay
         clickButton(buttonLabel: "Start Button")
         tapCoordinate(xCoordinate: 400, yCoordinate: 300)
         tapCoordinate(xCoordinate: 430, yCoordinate: 300)

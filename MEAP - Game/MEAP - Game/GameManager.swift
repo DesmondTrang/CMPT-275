@@ -39,7 +39,7 @@ class GameManager{
     
     var scene: GameScene!
     var score: Int!
-    var timer: Int!
+    var timer: Double!
     var timeUpdate: Timer!
     var cellRemaining: Int!
     var gameStage: Int!
@@ -99,7 +99,8 @@ class GameManager{
                 count += 1
             }
         }
-        let temp = 5*(Double(count/(total-startRounds[0].count))-(0.005*Double(timer)))
+        
+        let temp = 5*((Double(count)/Double(total-startRounds[0].count)) - (0.005*timer))
         score = Int(pow(2.718,temp))
     }
     

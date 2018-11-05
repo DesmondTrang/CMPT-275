@@ -16,11 +16,36 @@ class GameViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var startingLabel: UIImageView!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var tutorialView: UIView!
     var countDownTimer:Timer!
+    var player: AVQueuePlayer!
+    var screenSize = UIScreen.main.bounds.size
+    var playerLooper: AVPlayerLooper!
+    var playerLayer: AVPlayerLayer!
+    var playerItem: AVPlayerItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
             
+    }
+    
+    //plays video and Loops Player
+    private func PlayVideo(){
+        
+        //Plays "Tutorial.mp4"
+        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        
+        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        
+        playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
+        
+        playerLayer = AVPlayerLayer(player: player)
+
+        playerLayer.frame = CGRect(x: ((screenSize.width/4)-120) , y: ((screenSize.height/4)+120), width: 800, height: 500)
+        self.view.layer.addSublayer(playerLayer)
+        
+        player.play()
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -39,6 +64,22 @@ class GameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    @IBAction func MenuTutorial(_ sender: Any) {
+        tutorialView.isHidden = false
+        PlayVideo()
+    }
+    
+    @IBAction func Tutorial(_ sender: Any) {
+        tutorialView.isHidden = false
+        PlayVideo()
+    }
+    
+    @IBAction func ExitTutorial(_ sender: Any) {
+        tutorialView.isHidden = true
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
     }
     
     //Unhides Menu View

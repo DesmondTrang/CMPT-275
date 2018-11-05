@@ -26,6 +26,12 @@ class PCViewController: UIViewController {
     @IBOutlet weak var pausedView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var muteMusic: UIButton!
+    @IBOutlet weak var tutorialView: UIView!
+    var playerLooper: AVPlayerLooper!
+    var playerLayer: AVPlayerLayer!
+    var playerItem: AVPlayerItem!
+    var player: AVQueuePlayer!
+    var screenSize = UIScreen.main.bounds.size
     var cellChecker: Timer!
     
     var scene: GameScene!
@@ -51,11 +57,42 @@ class PCViewController: UIViewController {
         }
     }
     
+    //Loops Player
+    private func PlayVideo(){
+        
+        //Plays "Tutorial.mp4"
+        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        
+        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        
+        playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
+        
+        playerLayer = AVPlayerLayer(player: player)
+        
+        playerLayer.frame = CGRect(x: ((screenSize.width/4)-120) , y: ((screenSize.height/4)+120), width: 800, height: 500)
+        self.view.layer.addSublayer(playerLayer)
+        
+        player.play()
+        
+    }
+    
     //Stops music when screen is left
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         audioPlayer.stop()
     }
+    @IBAction func Return(_ sender: Any) {
+        tutorialView.isHidden = true
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        scene.game.paused = false
+    }
     
+    @IBAction func Tutorial(_ sender: Any) {
+        scene.game.paused = true
+        tutorialView.isHidden = false
+        PlayVideo()
+        
+    }
     //Displays pause screen and pauses game
     @IBAction func Pause(_ sender: Any) {
         pausedView.isHidden = false

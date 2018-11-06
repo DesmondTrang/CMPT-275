@@ -6,6 +6,7 @@
 // Changlog: - Created helper functions, Nov 1st 2018
 //           - Created verification test cases, Nov 3rd 2018
 //           - Created game play test cases, Nov 4th 2018
+//           - Updated function names, Nov 5th 2018
 //
 // Known Bugs: - Could not call functions on GameScene.swift so I created
 //               a workaround by tapping on coordinate on the game board
@@ -41,7 +42,7 @@ class MEAPUITest: XCTestCase {
     //          Expected output of the function
     //          Reason for function failure
     
-    private func checkTextExists (labelText: String) {
+    private func CheckTextExists (labelText: String) {
         
         // Description: Checks the current screen to see if the label
         //              passed in the argument is present.
@@ -53,7 +54,7 @@ class MEAPUITest: XCTestCase {
         XCTAssertTrue(app.staticTexts[labelText].exists)
     }
     
-    private func checkButtonExists (buttonLabel: String) {
+    private func CheckButtonExists (buttonLabel: String) {
         
         // Description: Checks the current screen to see if the button
         //              label passed in the argument is present.
@@ -65,7 +66,7 @@ class MEAPUITest: XCTestCase {
         XCTAssertTrue(app.buttons[buttonLabel].exists)
     }
     
-    private func checkPageIndicatorExists () {
+    private func CheckPageIndicatorExists () {
         
         // Description: Checks the current screen to see if the page
         //              indicators are present.
@@ -77,7 +78,7 @@ class MEAPUITest: XCTestCase {
         XCTAssert(app.pageIndicators["page 1 of 1"].exists)
     }
     
-    private func clickButton (buttonLabel: String) {
+    private func ClickButton (buttonLabel: String) {
         
         // Description: Clicks the button on the screen with the label
         //              passed in the argument.
@@ -89,7 +90,7 @@ class MEAPUITest: XCTestCase {
         app.buttons[buttonLabel].tap()
     }
     
-    private func tapCoordinate (xCoordinate: Double, yCoordinate: Double) {
+    private func TapCoordinate (xCoordinate: Double, yCoordinate: Double) {
         
         // Description: Simulates a user touch at the coordinate in the argument.
         //              Code taken from "https://stackoverflow.com/questions/36285090/how-to-tap-on-a-specific-point-using-xcode-uitests", user : JJacquet and Jakub
@@ -110,7 +111,7 @@ class MEAPUITest: XCTestCase {
     //          Expected Elements on the screen
     //          Steps for manual reproduction
     
-    func testCheckHomePage() {
+    func TestCheckHomePage() {
         
         // Description: Verify that all elements in the Home Screen are present.
         //
@@ -121,13 +122,13 @@ class MEAPUITest: XCTestCase {
         //           2) Verify elements
         
         // Verify
-        checkTextExists(labelText: "MEAP")
-        checkButtonExists(buttonLabel: "Menu")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Start")
+        CheckTextExists(labelText: "MEAP")
+        CheckButtonExists(buttonLabel: "Menu")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Start")
     }
     
-    func testCheckMenuPage() {
+    func TestCheckMenuPage() {
         
         // Description: Verify that all elements in the Menu Screen are present.
         //
@@ -139,16 +140,16 @@ class MEAPUITest: XCTestCase {
         //           3) Verify elements
         
         // Pre-Condition
-        clickButton(buttonLabel: "Menu")
+        ClickButton(buttonLabel: "Menu")
         
         // Verify
-        checkTextExists(labelText: "MENU")
-        checkButtonExists(buttonLabel: "History Button")
-        checkButtonExists(buttonLabel: "Return Button")
-        checkButtonExists(buttonLabel: "How To")
+        CheckTextExists(labelText: "MENU")
+        CheckButtonExists(buttonLabel: "History Button")
+        CheckButtonExists(buttonLabel: "Return Button")
+        CheckButtonExists(buttonLabel: "How To")
     }
     
-    func testCheckTutorialPage() {
+    func TestCheckTutorialPage() {
         
         // Description: Verify that all elements in the Tutorial Screen are present.
         //
@@ -160,12 +161,12 @@ class MEAPUITest: XCTestCase {
         //           3) Verify elements
         
         // Pre-Condition
-        clickButton(buttonLabel: "How To")
+        ClickButton(buttonLabel: "How To")
         
         // Verify
-        checkTextExists(labelText: "HOW - TO")
-        checkButtonExists(buttonLabel: "Pattern Completion Button")
-        checkButtonExists(buttonLabel: "Back Arrow")
+        CheckTextExists(labelText: "HOW - TO")
+        CheckButtonExists(buttonLabel: "Pattern Completion Button")
+        CheckButtonExists(buttonLabel: "Back Arrow")
     }
     
     func testStartButton() {
@@ -179,16 +180,16 @@ class MEAPUITest: XCTestCase {
         //           2) Click "Start" button
         //           3) Verify elements
         
-        clickButton(buttonLabel: "Start")
-        checkTextExists(labelText: "3")
+        ClickButton(buttonLabel: "Start")
+        CheckTextExists(labelText: "3")
         sleep(1) // countdown delay
-        checkTextExists(labelText: "2")
+        CheckTextExists(labelText: "2")
         sleep(1) // countdown delay
-        checkTextExists(labelText: "1")
+        CheckTextExists(labelText: "1")
         
     }
     
-    func testCheckPatternCompletionPage() {
+    func TestCheckPatternCompletionPage() {
         
         // Verify that all elements in the Pattern Completion page are present.
         //
@@ -201,20 +202,20 @@ class MEAPUITest: XCTestCase {
         //           3) Verify elements
         
         // Pre-Condition
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
         
         // Verify
-        checkTextExists(labelText: "Pattern Completion")
-        checkTextExists(labelText: "SCORE")
-        checkTextExists(labelText: "BEST")
-        checkTextExists(labelText: "Please memorize the above pattern.")
-        checkButtonExists(buttonLabel: "Pause Button")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Start Button")
+        CheckTextExists(labelText: "Pattern Completion")
+        CheckTextExists(labelText: "SCORE")
+        CheckTextExists(labelText: "BEST")
+        CheckTextExists(labelText: "Please memorize the above pattern.")
+        CheckButtonExists(buttonLabel: "Pause Button")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Start Button")
     }
     
-    func testCheckPausePage() {
+    func TestCheckPausePage() {
         
         // Verify that all elements in the Pause page are present.
         //
@@ -228,20 +229,20 @@ class MEAPUITest: XCTestCase {
         //           4) Verify elements
 
         // Pre-Condition
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
-        clickButton(buttonLabel: "Pause Button")
+        ClickButton(buttonLabel: "Pause Button")
         sleep(1) // button lag
         
         // Verify
-        checkTextExists(labelText: "PAUSED")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "MuteMusic")
-        checkButtonExists(buttonLabel: "Resume Button")
-        checkButtonExists(buttonLabel: "Quit Game Button")
+        CheckTextExists(labelText: "PAUSED")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "MuteMusic")
+        CheckButtonExists(buttonLabel: "Resume Button")
+        CheckButtonExists(buttonLabel: "Quit Game Button")
     }
     
-    func testCheckPatternCompletionGameplayPage() {
+    func TestCheckPatternCompletionGameplayPage() {
         
         // Verify that all elements in the Pattern Completion page are present
         // when the "Start" button is pressed.
@@ -256,22 +257,22 @@ class MEAPUITest: XCTestCase {
         //           4) Verify elements
         
         // Pre-Condition
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
-        clickButton(buttonLabel: "Start Button")
+        ClickButton(buttonLabel: "Start Button")
         sleep(1) // button lag
         
         // Verify
-        checkTextExists(labelText: "Pattern Completion")
-        checkTextExists(labelText: "SCORE")
-        checkTextExists(labelText: "BEST")
-        checkTextExists(labelText: "Number of Blocks Left: 3")
-        checkButtonExists(buttonLabel: "Pause Button")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Next Button")
+        CheckTextExists(labelText: "Pattern Completion")
+        CheckTextExists(labelText: "SCORE")
+        CheckTextExists(labelText: "BEST")
+        CheckTextExists(labelText: "Number of Blocks Left: 3")
+        CheckButtonExists(buttonLabel: "Pause Button")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Next Button")
     }
     
-    func testCheckScorePage() {
+    func TestCheckScorePage() {
         
         // Verify that all elements in the Scores page are present.
         //
@@ -287,21 +288,21 @@ class MEAPUITest: XCTestCase {
         //           6) Verify elements
         
         // Pre-Condition
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
-        clickButton(buttonLabel: "Start Button")
-        tapCoordinate(xCoordinate: 400, yCoordinate: 300)
-        tapCoordinate(xCoordinate: 430, yCoordinate: 300)
-        tapCoordinate(xCoordinate: 460, yCoordinate: 300)
-        clickButton(buttonLabel: "Next Button")
+        ClickButton(buttonLabel: "Start Button")
+        TapCoordinate(xCoordinate: 400, yCoordinate: 300)
+        TapCoordinate(xCoordinate: 430, yCoordinate: 300)
+        TapCoordinate(xCoordinate: 460, yCoordinate: 300)
+        ClickButton(buttonLabel: "Next Button")
         
         // Verify
-        checkTextExists(labelText: "SCORES")
-        checkTextExists(labelText: "SCORE")
-        checkTextExists(labelText: "BEST")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Forward Button")
-        checkPageIndicatorExists()
+        CheckTextExists(labelText: "SCORES")
+        CheckTextExists(labelText: "SCORE")
+        CheckTextExists(labelText: "BEST")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Forward Button")
+        CheckPageIndicatorExists()
         
     }
     
@@ -312,7 +313,7 @@ class MEAPUITest: XCTestCase {
     //         Expected Elements
     //         Steps for manual reproduction
     
-    func testReturnFromTutorial() {
+    func TestReturnFromTutorial() {
         
         // Test that the back arrow is able to transition app
         // from Tutorial Screen back to Home Screen.
@@ -326,17 +327,17 @@ class MEAPUITest: XCTestCase {
         //           3) Click "Back Arrow" Button
         
         // Pre-Condition
-        clickButton(buttonLabel: "How To")
-        clickButton(buttonLabel: "Back Arrow")
+        ClickButton(buttonLabel: "How To")
+        ClickButton(buttonLabel: "Back Arrow")
         
         // Verify
-        checkTextExists(labelText: "MEAP")
-        checkButtonExists(buttonLabel: "Menu")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Start")
+        CheckTextExists(labelText: "MEAP")
+        CheckButtonExists(buttonLabel: "Menu")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Start")
     }
     
-    func testResumeGame() {
+    func TestResumeGame() {
         
         // Test that the game is able to be paused and resumed.
         // Verify that the correct screen is shown by looking for
@@ -353,24 +354,24 @@ class MEAPUITest: XCTestCase {
         //           5) Verify elements
         
         // Testing Resume
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
-        clickButton(buttonLabel: "Pause Button")
+        ClickButton(buttonLabel: "Pause Button")
         sleep(1) // button lag
-        clickButton(buttonLabel: "Resume Button")
+        ClickButton(buttonLabel: "Resume Button")
         sleep(1) // button lag
         
         // Verify
-        checkTextExists(labelText: "Pattern Completion")
-        checkTextExists(labelText: "SCORE")
-        checkTextExists(labelText: "BEST")
-        checkTextExists(labelText: "Please memorize the above pattern.")
-        checkButtonExists(buttonLabel: "Pause Button")
-        checkButtonExists(buttonLabel: "Start Button")
-        checkButtonExists(buttonLabel: "How To")
+        CheckTextExists(labelText: "Pattern Completion")
+        CheckTextExists(labelText: "SCORE")
+        CheckTextExists(labelText: "BEST")
+        CheckTextExists(labelText: "Please memorize the above pattern.")
+        CheckButtonExists(buttonLabel: "Pause Button")
+        CheckButtonExists(buttonLabel: "Start Button")
+        CheckButtonExists(buttonLabel: "How To")
     }
     
-    func testPlayGame() {
+    func TestPlayGame() {
         
         // Test that the whole gameplay is able to complete from
         // start to finish.
@@ -386,20 +387,20 @@ class MEAPUITest: XCTestCase {
         //           6) Verify elements
         
         // Gameplay
-        clickButton(buttonLabel: "Start")
+        ClickButton(buttonLabel: "Start")
         sleep(5) // countdown delay
-        clickButton(buttonLabel: "Start Button")
-        tapCoordinate(xCoordinate: 400, yCoordinate: 300)
-        tapCoordinate(xCoordinate: 430, yCoordinate: 300)
-        tapCoordinate(xCoordinate: 460, yCoordinate: 300)
-        clickButton(buttonLabel: "Next Button")
-        clickButton(buttonLabel: "Forward Button")
+        ClickButton(buttonLabel: "Start Button")
+        TapCoordinate(xCoordinate: 400, yCoordinate: 300)
+        TapCoordinate(xCoordinate: 430, yCoordinate: 300)
+        TapCoordinate(xCoordinate: 460, yCoordinate: 300)
+        ClickButton(buttonLabel: "Next Button")
+        ClickButton(buttonLabel: "Forward Button")
         
         // Verify
-        checkTextExists(labelText: "MEAP")
-        checkButtonExists(buttonLabel: "Menu")
-        checkButtonExists(buttonLabel: "How To")
-        checkButtonExists(buttonLabel: "Start")
+        CheckTextExists(labelText: "MEAP")
+        CheckButtonExists(buttonLabel: "Menu")
+        CheckButtonExists(buttonLabel: "How To")
+        CheckButtonExists(buttonLabel: "Start")
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

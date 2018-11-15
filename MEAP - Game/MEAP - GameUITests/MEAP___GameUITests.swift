@@ -111,7 +111,7 @@ class MEAPUITest: XCTestCase {
     //          Expected Elements on the screen
     //          Steps for manual reproduction
     
-    func TestCheckHomePage() {
+    func testCheckHomePage() {
         
         // Description: Verify that all elements in the Home Screen are present.
         //
@@ -128,7 +128,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "Start")
     }
     
-    func TestCheckMenuPage() {
+    func testCheckMenuPage() {
         
         // Description: Verify that all elements in the Menu Screen are present.
         //
@@ -149,7 +149,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "How To")
     }
     
-    func TestCheckTutorialPage() {
+    func testCheckTutorialPage() {
         
         // Description: Verify that all elements in the Tutorial Screen are present.
         //
@@ -189,7 +189,7 @@ class MEAPUITest: XCTestCase {
         
     }
     
-    func TestCheckPatternCompletionPage() {
+    func testCheckPatternCompletionPage() {
         
         // Verify that all elements in the Pattern Completion page are present.
         //
@@ -215,7 +215,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "Start Button")
     }
     
-    func TestCheckPausePage() {
+    func testCheckPausePage() {
         
         // Verify that all elements in the Pause page are present.
         //
@@ -242,7 +242,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "Quit Game Button")
     }
     
-    func TestCheckPatternCompletionGameplayPage() {
+    func testCheckPatternCompletionGameplayPage() {
         
         // Verify that all elements in the Pattern Completion page are present
         // when the "Start" button is pressed.
@@ -272,7 +272,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "Next Button")
     }
     
-    func TestCheckScorePage() {
+    func testCheckScorePage() {
         
         // Verify that all elements in the Scores page are present.
         //
@@ -313,7 +313,7 @@ class MEAPUITest: XCTestCase {
     //         Expected Elements
     //         Steps for manual reproduction
     
-    func TestReturnFromTutorial() {
+    func testReturnFromTutorial() {
         
         // Test that the back arrow is able to transition app
         // from Tutorial Screen back to Home Screen.
@@ -337,7 +337,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "Start")
     }
     
-    func TestResumeGame() {
+    func testResumeGame() {
         
         // Test that the game is able to be paused and resumed.
         // Verify that the correct screen is shown by looking for
@@ -371,7 +371,7 @@ class MEAPUITest: XCTestCase {
         CheckButtonExists(buttonLabel: "How To")
     }
     
-    func TestPlayGame() {
+    func testPlayGame() {
         
         // Test that the whole gameplay is able to complete from
         // start to finish.

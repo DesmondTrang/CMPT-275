@@ -1,0 +1,6 @@
+framework module Pods_MEAPUITests {
+  umbrella header "Pods-MEAPUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

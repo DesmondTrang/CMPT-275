@@ -5,13 +5,14 @@
 //  Created by Angus  on 2018-11-01.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
-//  Programmers: Angus Chen
+//  Programmers: Angus Chen, Kavya Bohra
 //  UI Created By: Desmond Trang
 //  Team: CMPT 275 Team 7 - MEAP
 //  Changes: -File Created - 11/1/18
-//           -File Completed - 11/2/18
+//           -File Completed for Version 1 - 11/2/18
 //           -Fixed Bug - 11/4/18
 //           -Fixed Bug - 11/5/18
+//           -File Completed for Version 2 - 11/17/18
 //  Known Bugs: NONE!
 
 
@@ -57,9 +58,10 @@ class PCViewController: UIViewController {
         
         do {
             //Plays "backgroundMusic.mp3"
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic", ofType: ".mp3")!))
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic_short", ofType: ".mp3")!))
             audioPlayer.prepareToPlay()
             audioPlayer.play()
+            audioPlayer.numberOfLoops = -1 //Music length reduced to 10 minutes, hence loops indefinitely until muted
         }
         catch{
             print(error);
@@ -139,7 +141,7 @@ class PCViewController: UIViewController {
         }
     }
 
-    //Mutes or plays music
+    //Mutes or plays background music
     @IBAction func MuteMusic(_ sender: Any) {
         if(audioPlayer.isPlaying == true){
             audioPlayer.stop()
@@ -147,7 +149,9 @@ class PCViewController: UIViewController {
         }
         else {
             audioPlayer.prepareToPlay()
+            audioPlayer.currentTime = 0
             audioPlayer.play()
+            audioPlayer.numberOfLoops = -1 //Loops indefintely until muted again
             muteMusic.setImage(UIImage(named: "MuteMusic"), for: .normal)
         }
     }

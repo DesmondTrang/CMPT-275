@@ -5,10 +5,11 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
-//  Programmers: Angus Chen
+//  Programmers: Angus Chen, Kavya Bohra
 //  Team: CMPT 275 Team 7 - MEAP
 //  Changes: -File Created - 10/25/18
-//           -File Completed - 11/2/18
+//           -File Completed for Version 1 - 11/2/18
+//           -File Completed for Version 2 - 11/17/18
 //  Known Bugs: NONE!
 
 
@@ -43,7 +44,11 @@ class GameManager{
     
     //Contains information for the memorization phase board
     //In an array because future versions will contain multiple rounds
+    //This is a 2D array that will contain all the board patterns
     var rounds = [[boardCell(X:5,Y:5,Color:"red"), boardCell(X:5,Y:4,Color:"red"), boardCell(X:5,Y:3,Color:"red"),boardCell(X:4,Y:3,Color:"red"),boardCell(X:3,Y:3,Color:"red")]]
+    
+    //Add PS images here
+    
     
     //Contains information for the partial pattern board
     var startRounds = [[boardCell(X:5,Y:5,Color:"orange"),boardCell(X:3,Y:3,Color:"orange")]]

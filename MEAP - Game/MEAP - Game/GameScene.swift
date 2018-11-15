@@ -5,10 +5,11 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
-//  Programmers: Angus Chen
+//  Programmers: Angus Chen, Kavya Bohra
 //  Team: CMPT 275 Team 7 - MEAP
 //  Changes: -File Created - 10/25/18
-//           -File Completed - 11/2/18
+//           -File Completed for Version 1 - 11/2/18
+//           -File Completed for Version 2 - 11/17/18
 //  Known Bugs: NONE!
 
 
@@ -22,7 +23,8 @@ class GameScene: SKScene {
     var game: GameManager! //Instance of game manager
     var customBackGroundColor = UIColor(named: "backgroundColor")!
     let screenSize = UIScreen.main.bounds.size //Size of screen
-    let cellWidth: CGFloat =  50 //Width of cell of the board
+    let cellWidthPC: CGFloat =  50 //Width of cell of the board for Pattern Completion Board
+    let cellWidthPS: CGFloat =  25 //Width of cell of the board for Pattern Completion Board
     var board = [[SKShapeNode]]()
     
     //Initializes Scene
@@ -31,6 +33,7 @@ class GameScene: SKScene {
         self.backgroundColor = customBackGroundColor
         game = GameManager(scene: self)
         InitiateBoard()
+        // InitiateBoardPS() // Kavya: InitiateBoardPS() instead to test
     }
     
 
@@ -48,13 +51,36 @@ class GameScene: SKScene {
                 node.position = CGPoint(x: x, y: y)
                 boardArray.append(node)
                 self.addChild(node)
-                x += cellWidth
+                x += cellWidthPC
             }
             board.append(boardArray)
             x = CGFloat((width / 4)+50)
-            y -= cellWidth
+            y -= cellWidthPC
         }
     }
+    /*
+    func InitiateBoardPS() {
+        let heightPS = screenSize.height
+        let widthPS = screenSize.width
+        var x = CGFloat((widthPS / 4)+50)
+        var y = CGFloat(heightPS*(3/4)+30)
+        
+        for _ in 0...19 {
+            var PSBoardArray = [SKShapeNode]()
+            for _ in 0...19 {
+                let node = SKShapeNode(rectOf: CGSize(width: 25, height: 25))
+                node.fillColor = SKColor.blue
+                node.position = CGPoint(x: x, y: y)
+                PSBoardArray.append(node)
+                self.addChild(node)
+                x += cellWidthPS
+            }
+            board.append(PSBoardArray)
+            x = CGFloat((widthPS / 4)+50)
+            y -= cellWidthPS
+        }
+    }
+    */
     
     //Creates two separate boards containing the solution and user's answer side by side
     func InitiateSummary(){
@@ -90,13 +116,13 @@ class GameScene: SKScene {
                 
                 self.addChild(node)
                 self.addChild(node1)
-                x1 += cellWidth
-                x2 += cellWidth
+                x1 += cellWidthPC
+                x2 += cellWidthPC
                 
             }
             x1 = CGFloat(50)
             x2 = CGFloat(600)
-            y -= cellWidth
+            y -= cellWidthPC
         }
     }
     
@@ -125,6 +151,7 @@ class GameScene: SKScene {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
+    //Updates the color according to the color assigned in GameManager.swift
     //IOS function that updates board every frame
     //i and j are flipped because of how 2-D array was initialized
     override func update(_ currentTime: TimeInterval) {

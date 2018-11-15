@@ -1,0 +1,775 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		148C4E661BF40B7274357582 /* Pods_MEAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */; };
+		63247738D24B4F9E4C220FDC /* Pods_MEAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */; };
+		92294F1A218ADEC700630436 /* PCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92294F19218ADEC700630436 /* PCViewController.swift */; };
+		923B9026218FDE550032D8B4 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 923B9025218FDE540032D8B4 /* tutorial.mp4 */; };
+		B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4E912182650A00F8101A /* AppDelegate.swift */; };
+		B17B4E942182650A00F8101A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E932182650A00F8101A /* GameScene.sks */; };
+		B17B4E962182650A00F8101A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E952182650A00F8101A /* Actions.sks */; };
+		B17B4E982182650A00F8101A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4E972182650A00F8101A /* GameScene.swift */; };
+		B17B4E9A2182650A00F8101A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4E992182650A00F8101A /* GameViewController.swift */; };
+		B17B4E9D2182650A00F8101A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E9B2182650A00F8101A /* Main.storyboard */; };
+		B17B4E9F2182650B00F8101A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E9E2182650B00F8101A /* Assets.xcassets */; };
+		B17B4EA22182650B00F8101A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17B4EA02182650B00F8101A /* LaunchScreen.storyboard */; };
+		B17B4EAD2182650B00F8101A /* MEAP___GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */; };
+		B17B4EB82182650C00F8101A /* MEAP___GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */; };
+		B17B4EC6218266A800F8101A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EC5218266A800F8101A /* GameManager.swift */; };
+		C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */; };
+		CE697043219D4457008215E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE697042219D4457008215E9 /* GoogleService-Info.plist */; };
+		DA8EC263D0FB490DE2F4BC70 /* Pods_MEAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B17B4EA92182650B00F8101A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17B4E862182650A00F8101A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B17B4E8D2182650A00F8101A;
+			remoteInfo = "MEAP - Game";
+		};
+		B17B4EB42182650C00F8101A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17B4E862182650A00F8101A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B17B4E8D2182650A00F8101A;
+			remoteInfo = "MEAP - Game";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPUITests/Pods-MEAPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		15182721D66AC6023CCE1B35 /* Pods-MEAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPTests/Pods-MEAPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		547B38BB35E979EA0CE4620E /* Pods-MEAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP/Pods-MEAP.release.xcconfig"; sourceTree = "<group>"; };
+		5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85217D6C17C22CD1DAF1BE4E /* Pods-MEAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP/Pods-MEAP.debug.xcconfig"; sourceTree = "<group>"; };
+		89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPTests/Pods-MEAPTests.release.xcconfig"; sourceTree = "<group>"; };
+		92294F19218ADEC700630436 /* PCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCViewController.swift; sourceTree = "<group>"; };
+		923B9025218FDE540032D8B4 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
+		B17B4E8E2182650A00F8101A /* MEAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17B4E912182650A00F8101A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B17B4E932182650A00F8101A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		B17B4E952182650A00F8101A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		B17B4E972182650A00F8101A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		B17B4E992182650A00F8101A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B17B4E9C2182650A00F8101A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B17B4E9E2182650B00F8101A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B17B4EA12182650B00F8101A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B17B4EA32182650B00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B17B4EA82182650B00F8101A /* MEAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameTests.swift"; sourceTree = "<group>"; };
+		B17B4EAE2182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B17B4EB32182650C00F8101A /* MEAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameUITests.swift"; sourceTree = "<group>"; };
+		B17B4EB92182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B17B4EC5218266A800F8101A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPUITests/Pods-MEAPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		CE697042219D4457008215E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B17B4E8B2182650A00F8101A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8EC263D0FB490DE2F4BC70 /* Pods_MEAP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EA52182650B00F8101A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148C4E661BF40B7274357582 /* Pods_MEAPTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EB02182650C00F8101A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63247738D24B4F9E4C220FDC /* Pods_MEAPUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13F52F57517D80D5823A09AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */,
+				EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */,
+				3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F025CE82B95F099A4131461 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85217D6C17C22CD1DAF1BE4E /* Pods-MEAP.debug.xcconfig */,
+				547B38BB35E979EA0CE4620E /* Pods-MEAP.release.xcconfig */,
+				15182721D66AC6023CCE1B35 /* Pods-MEAPTests.debug.xcconfig */,
+				89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */,
+				06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */,
+				B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B17B4E852182650A00F8101A = {
+			isa = PBXGroup;
+			children = (
+				B17B4E902182650A00F8101A /* MEAP - Game */,
+				B17B4EAB2182650B00F8101A /* MEAP - GameTests */,
+				B17B4EB62182650C00F8101A /* MEAP - GameUITests */,
+				B17B4E8F2182650A00F8101A /* Products */,
+				8F025CE82B95F099A4131461 /* Pods */,
+				13F52F57517D80D5823A09AD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B17B4E8F2182650A00F8101A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B17B4E8E2182650A00F8101A /* MEAP.app */,
+				B17B4EA82182650B00F8101A /* MEAPTests.xctest */,
+				B17B4EB32182650C00F8101A /* MEAPUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B17B4E902182650A00F8101A /* MEAP - Game */ = {
+			isa = PBXGroup;
+			children = (
+				CE697042219D4457008215E9 /* GoogleService-Info.plist */,
+				923B9025218FDE540032D8B4 /* tutorial.mp4 */,
+				B17B4E912182650A00F8101A /* AppDelegate.swift */,
+				B17B4E932182650A00F8101A /* GameScene.sks */,
+				B17B4E952182650A00F8101A /* Actions.sks */,
+				B17B4E972182650A00F8101A /* GameScene.swift */,
+				92294F19218ADEC700630436 /* PCViewController.swift */,
+				B17B4E992182650A00F8101A /* GameViewController.swift */,
+				B17B4E9B2182650A00F8101A /* Main.storyboard */,
+				B17B4E9E2182650B00F8101A /* Assets.xcassets */,
+				B17B4EA02182650B00F8101A /* LaunchScreen.storyboard */,
+				B17B4EA32182650B00F8101A /* Info.plist */,
+				C5B4FFB6218A8B9400E6899B /* Music */,
+				B17B4EC5218266A800F8101A /* GameManager.swift */,
+			);
+			path = "MEAP - Game";
+			sourceTree = "<group>";
+		};
+		B17B4EAB2182650B00F8101A /* MEAP - GameTests */ = {
+			isa = PBXGroup;
+			children = (
+				B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */,
+				B17B4EAE2182650C00F8101A /* Info.plist */,
+			);
+			path = "MEAP - GameTests";
+			sourceTree = "<group>";
+		};
+		B17B4EB62182650C00F8101A /* MEAP - GameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */,
+				B17B4EB92182650C00F8101A /* Info.plist */,
+			);
+			path = "MEAP - GameUITests";
+			sourceTree = "<group>";
+		};
+		C5B4FFB6218A8B9400E6899B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B17B4E8D2182650A00F8101A /* MEAP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17B4EBC2182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAP" */;
+			buildPhases = (
+				0963F3D9940D6B4B8F024A3B /* [CP] Check Pods Manifest.lock */,
+				B17B4E8A2182650A00F8101A /* Sources */,
+				B17B4E8B2182650A00F8101A /* Frameworks */,
+				B17B4E8C2182650A00F8101A /* Resources */,
+				A293CF672EB3FC3A9D21D26C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MEAP;
+			productName = "MEAP - Game";
+			productReference = B17B4E8E2182650A00F8101A /* MEAP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B17B4EA72182650B00F8101A /* MEAPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17B4EBF2182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAPTests" */;
+			buildPhases = (
+				2D203A6B12D6E568437EFD54 /* [CP] Check Pods Manifest.lock */,
+				B17B4EA42182650B00F8101A /* Sources */,
+				B17B4EA52182650B00F8101A /* Frameworks */,
+				B17B4EA62182650B00F8101A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17B4EAA2182650B00F8101A /* PBXTargetDependency */,
+			);
+			name = MEAPTests;
+			productName = "MEAP - GameTests";
+			productReference = B17B4EA82182650B00F8101A /* MEAPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B17B4EB22182650C00F8101A /* MEAPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17B4EC22182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAPUITests" */;
+			buildPhases = (
+				64402F636B48CE6633DE0A6A /* [CP] Check Pods Manifest.lock */,
+				B17B4EAF2182650C00F8101A /* Sources */,
+				B17B4EB02182650C00F8101A /* Frameworks */,
+				B17B4EB12182650C00F8101A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17B4EB52182650C00F8101A /* PBXTargetDependency */,
+			);
+			name = MEAPUITests;
+			productName = "MEAP - GameUITests";
+			productReference = B17B4EB32182650C00F8101A /* MEAPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B17B4E862182650A00F8101A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Angus Chen";
+				TargetAttributes = {
+					B17B4E8D2182650A00F8101A = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+					B17B4EA72182650B00F8101A = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = B17B4E8D2182650A00F8101A;
+					};
+					B17B4EB22182650C00F8101A = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = B17B4E8D2182650A00F8101A;
+					};
+				};
+			};
+			buildConfigurationList = B17B4E892182650A00F8101A /* Build configuration list for PBXProject "MEAP" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B17B4E852182650A00F8101A;
+			productRefGroup = B17B4E8F2182650A00F8101A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B17B4E8D2182650A00F8101A /* MEAP */,
+				B17B4EA72182650B00F8101A /* MEAPTests */,
+				B17B4EB22182650C00F8101A /* MEAPUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B17B4E8C2182650A00F8101A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				923B9026218FDE550032D8B4 /* tutorial.mp4 in Resources */,
+				CE697043219D4457008215E9 /* GoogleService-Info.plist in Resources */,
+				B17B4E9D2182650A00F8101A /* Main.storyboard in Resources */,
+				B17B4E942182650A00F8101A /* GameScene.sks in Resources */,
+				B17B4E9F2182650B00F8101A /* Assets.xcassets in Resources */,
+				C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */,
+				B17B4EA22182650B00F8101A /* LaunchScreen.storyboard in Resources */,
+				B17B4E962182650A00F8101A /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EA62182650B00F8101A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EB12182650C00F8101A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0963F3D9940D6B4B8F024A3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MEAP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D203A6B12D6E568437EFD54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MEAPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64402F636B48CE6633DE0A6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MEAPUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A293CF672EB3FC3A9D21D26C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B17B4E8A2182650A00F8101A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17B4E982182650A00F8101A /* GameScene.swift in Sources */,
+				B17B4EC6218266A800F8101A /* GameManager.swift in Sources */,
+				B17B4E9A2182650A00F8101A /* GameViewController.swift in Sources */,
+				92294F1A218ADEC700630436 /* PCViewController.swift in Sources */,
+				B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EA42182650B00F8101A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17B4EAD2182650B00F8101A /* MEAP___GameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17B4EAF2182650C00F8101A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17B4EB82182650C00F8101A /* MEAP___GameUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B17B4EAA2182650B00F8101A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B17B4E8D2182650A00F8101A /* MEAP */;
+			targetProxy = B17B4EA92182650B00F8101A /* PBXContainerItemProxy */;
+		};
+		B17B4EB52182650C00F8101A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B17B4E8D2182650A00F8101A /* MEAP */;
+			targetProxy = B17B4EB42182650C00F8101A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B17B4E9B2182650A00F8101A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B17B4E9C2182650A00F8101A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B17B4EA02182650B00F8101A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B17B4EA12182650B00F8101A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B17B4EBA2182650C00F8101A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B17B4EBB2182650C00F8101A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B17B4EBD2182650C00F8101A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85217D6C17C22CD1DAF1BE4E /* Pods-MEAP.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - Game/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meap.meap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B17B4EBE2182650C00F8101A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 547B38BB35E979EA0CE4620E /* Pods-MEAP.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - Game/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meap.meap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B17B4EC02182650C00F8101A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15182721D66AC6023CCE1B35 /* Pods-MEAPTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - GameTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MEAP.MEAP---GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MEAP.app/MEAP";
+			};
+			name = Debug;
+		};
+		B17B4EC12182650C00F8101A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - GameTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MEAP.MEAP---GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MEAP.app/MEAP";
+			};
+			name = Release;
+		};
+		B17B4EC32182650C00F8101A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - GameUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MEAP.MEAP---GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MEAP - Game";
+			};
+			name = Debug;
+		};
+		B17B4EC42182650C00F8101A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MEAP - GameUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "MEAP.MEAP---GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MEAP - Game";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B17B4E892182650A00F8101A /* Build configuration list for PBXProject "MEAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17B4EBA2182650C00F8101A /* Debug */,
+				B17B4EBB2182650C00F8101A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17B4EBC2182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17B4EBD2182650C00F8101A /* Debug */,
+				B17B4EBE2182650C00F8101A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17B4EBF2182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17B4EC02182650C00F8101A /* Debug */,
+				B17B4EC12182650C00F8101A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17B4EC22182650C00F8101A /* Build configuration list for PBXNativeTarget "MEAPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17B4EC32182650C00F8101A /* Debug */,
+				B17B4EC42182650C00F8101A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B17B4E862182650A00F8101A /* Project object */;
+}

@@ -5,7 +5,7 @@
 //  Created by Angus  on 2018-11-01.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
-//  Programmers: Desmond Trang
+//  Programmers: Desmond Trang, Travis Friday
 //  Team: CMPT 275 Team 7 - MEAP
 //  Changes: -File Created - 11/17/18
 //  Known Bugs: NONE!

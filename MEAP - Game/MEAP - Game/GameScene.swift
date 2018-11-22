@@ -70,17 +70,17 @@ class GameScene: SKScene {
                 node.position = CGPoint(x: x1, y: y)
                 node1.position = CGPoint(x: x2, y: y)
                 
-                if(game.gameBoardSolutions[0].board[j][i] == "red"){
+                if(game.gameBoardSolutions[game.PCnum].board[j][i] == "red"){
                     node.fillColor = SKColor.red
                 }
                 else{
                     node.fillColor = SKColor.blue
                 }
                 
-                if(game.gameBoardUserAnswers[0].board[j][i] == "red"){
+                if(game.gameBoardUserAnswers[game.PCnum].board[j][i] == "red"){
                     node1.fillColor = SKColor.red
                 }
-                else if(game.gameBoardUserAnswers[0].board[j][i] == "blue"){
+                else if(game.gameBoardUserAnswers[game.PCnum].board[j][i] == "blue"){
                     node1.fillColor = SKColor.blue
                 }
                 else{
@@ -128,6 +128,7 @@ class GameScene: SKScene {
     //IOS function that updates board every frame
     //i and j are flipped because of how 2-D array was initialized
     override func update(_ currentTime: TimeInterval) {
+        if(game.gameStage != 2){
         for i in 0...9{
             for j in 0...9{
                 if(game.currentGameBoard.board[i][j] == "red"){
@@ -140,6 +141,7 @@ class GameScene: SKScene {
                     board[j][i].fillColor = SKColor.orange
                 }
             }
+        }
         }
     }
 }

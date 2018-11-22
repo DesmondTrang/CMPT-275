@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.4288"
+            timestampString = "564298851.76185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "touchDown(atPoint:)"
+            landmarkName = "InitiateSummary()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.428892"
+            timestampString = "564298851.761937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
-            landmarkName = "touchDown(atPoint:)"
+            landmarkName = "InitiateSummary()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.4289581"
+            timestampString = "564298851.762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "touchDown(atPoint:)"
+            landmarkName = "InitiateSummary()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.42902"
+            timestampString = "564298851.762061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "touchDown(atPoint:)"
-            landmarkType = "7">
+            landmarkName = "GameScene"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.42908"
+            timestampString = "564298851.762121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "touchDown(atPoint:)"
+            landmarkName = "InitiateSummary()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameScene.swift"
-            timestampString = "563102770.429139"
+            timestampString = "564298851.762192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -106,28 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameManager.swift"
-            timestampString = "563104146.226319"
+            timestampString = "564305630.5921561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "CalculateScore()"
-            landmarkType = "7">
+            landmarkName = "GameManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/GameManager.swift"
-            timestampString = "563104146.226782"
+            timestampString = "564305630.592571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "CalculateScore()"
+            landmarkName = "FinishPatternCompletionRound()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,6 +23,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var tutorialButton: UIButton!
     @IBOutlet weak var startingLabel: UIImageView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var tutorialView: UIView!

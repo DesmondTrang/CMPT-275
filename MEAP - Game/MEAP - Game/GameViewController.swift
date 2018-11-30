@@ -40,18 +40,18 @@ class GameViewController: UIViewController {
     }
     
     //plays and loops "Tutorial.mp4"
-    private func PlayVideo(){
+    private func PlayVideo(name: String){
         
         screenSize = UIScreen.main.bounds.size
         //Plays "Tutorial.mp4"
-        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
-        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
         playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
         
         playerLayer = AVPlayerLayer(player: player)
-
+        
         playerLayer.frame = CGRect(x: ((screenSize.width/4)-120) , y: ((screenSize.height/4)+120), width: 800, height: 500)
         self.view.layer.addSublayer(playerLayer)
         
@@ -81,7 +81,7 @@ class GameViewController: UIViewController {
     //Brings up Tutorial from menu
     @IBAction func MenuTutorial(_ sender: Any) {
         tutorialView.isHidden = false
-        PlayVideo()
+        PlayVideo(name: "tutorialPC")
     }
     
     //Brings up tutorial from main screen
@@ -94,7 +94,22 @@ class GameViewController: UIViewController {
         startingLabel.isHidden = true
         startButton.isHidden = false
         tutorialView.isHidden = false
-        PlayVideo()
+        PlayVideo(name: "tutorialPC")
+    }
+    
+    @IBAction func PatternSeparationTutorial(_ sender: Any) {
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPS")
+    }
+    
+    
+    @IBAction func PatternCompletionTutorial(_ sender: Any) {
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPC")
     }
     
     //Exits Tutorial

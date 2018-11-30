@@ -154,9 +154,25 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="535-7k-FJG">
-                                        <rect key="frame" x="406" y="252" width="300" height="62"/>
+                                        <rect key="frame" x="252" y="236" width="300" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Pattern Completion Button"/>
+                                        <connections>
+                                            <action selector="PatternCompletionTutorial:" destination="BV1-FR-VrT" eventType="touchUpInside" id="UOC-mL-Ktt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suE-rY-ThH">
+                                        <rect key="frame" x="601" y="236" width="300" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Pattern Separation Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X7-YL-jaz">
+                                        <rect key="frame" x="601" y="236" width="300" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Pattern Separation Button"/>
+                                        <connections>
+                                            <action selector="PatternSeparationTutorial:" destination="BV1-FR-VrT" eventType="touchUpInside" id="X7Y-PZ-uGl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="backgroundColor"/>
@@ -332,45 +348,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOt-TM-qv3" userLabel="PSNext">
-                                <rect key="frame" x="918" y="739" width="115" height="37"/>
+                                <rect key="frame" x="591" y="777" width="115" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Forward Button"/>
                                 <connections>
                                     <action selector="PSNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Hsu-mk-3fY"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpJ-0i-fMJ" userLabel="PCNext">
-                                <rect key="frame" x="918" y="739" width="115" height="37"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xp7-Po-boR" userLabel="PSPrev">
+                                <rect key="frame" x="406" y="777" width="115" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Forward Button"/>
+                                <state key="normal" image="Backward Arrow"/>
                                 <connections>
-                                    <action selector="PSNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="wkD-pc-EUL"/>
+                                    <action selector="PSPrev:" destination="wLl-VU-nV0" eventType="touchUpInside" id="11A-dF-6Yv"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-0V-ZXv" userLabel="PsBest">
-                                <rect key="frame" x="835" y="242" width="138" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-PA-4d7" userLabel="Next Button">
-                                <rect key="frame" x="792" y="726" width="300" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Next Button"/>
-                                <connections>
-                                    <action selector="StartPs:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Skb-WA-Ws4"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzR-bv-dSQ" userLabel="PCHistoryNext">
-                                <rect key="frame" x="591" y="777" width="115" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Forward Button"/>
-                                <connections>
-                                    <action selector="PCHistoryNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Nwk-py-UhS"/>
-                                </connections>
-                            </button>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Yb-8vg">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Yb-8vg">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -417,7 +410,7 @@
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <viewLayoutGuide key="safeArea" id="bcM-08-Zg9"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-vD-vS3">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-vD-vS3">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -438,10 +431,21 @@
                                             <action selector="ReturnToMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="BXj-lP-5li"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXg-lH-Afk">
+                                        <rect key="frame" x="607" y="221" width="300" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Pattern Separation Button"/>
+                                        <connections>
+                                            <action selector="PatternSeparationTutorial:" destination="wLl-VU-nV0" eventType="touchUpInside" id="po7-AL-D5e"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-lC-jLj">
-                                        <rect key="frame" x="406" y="252" width="300" height="62"/>
+                                        <rect key="frame" x="272" y="221" width="300" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Pattern Completion Button"/>
+                                        <connections>
+                                            <action selector="PatternCompletionTutorial:" destination="wLl-VU-nV0" eventType="touchUpInside" id="TKp-GB-cDn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="backgroundColor"/>
@@ -450,11 +454,57 @@
                                 </accessibility>
                                 <viewLayoutGuide key="safeArea" id="pXo-Lb-0In"/>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-0V-ZXv" userLabel="PsBest">
+                                <rect key="frame" x="835" y="242" width="138" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-PA-4d7" userLabel="Next Button">
+                                <rect key="frame" x="792" y="730" width="300" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Next Button"/>
+                                <connections>
+                                    <action selector="StartPs:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Skb-WA-Ws4"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzR-bv-dSQ" userLabel="PCHistoryNext">
+                                <rect key="frame" x="591" y="777" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Forward Button"/>
+                                <connections>
+                                    <action selector="PCHistoryNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Nwk-py-UhS"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-Fk-coi" userLabel="PCHistoryPrev">
+                                <rect key="frame" x="406" y="777" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Backward Arrow"/>
+                                <connections>
+                                    <action selector="PCHistoryPrev:" destination="wLl-VU-nV0" eventType="touchUpInside" id="lJL-HK-7zA"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka8-24-a9f" userLabel="PSDone">
+                                <rect key="frame" x="792" y="726" width="300" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Next Button"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="dht-Tt-NCk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="ECI-m9-KEg"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hhm-Yb-8vg"/>
+                                <exclude reference="nFD-vD-vS3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="PSDone" destination="Ka8-24-a9f" id="sTJ-qY-Alc"/>
                         <outlet property="best" destination="hsK-6k-idV" id="J35-Su-p5q"/>
                         <outlet property="bestValue" destination="3Dd-eK-n1o" id="YnV-OK-N6c"/>
                         <outlet property="correctLabel" destination="ugl-jS-Xrx" id="vXK-kb-hVg"/>
@@ -465,16 +515,17 @@
                         <outlet property="nextButton" destination="e2n-V8-SNQ" id="jff-fK-oA8"/>
                         <outlet property="oldBtn" destination="SKf-dD-alY" id="HN4-hL-7Ol"/>
                         <outlet property="pCLabel" destination="8Xr-0o-39i" id="eh6-2B-DYg"/>
-                        <outlet property="pCNextArrow" destination="kpJ-0i-fMJ" id="oog-2w-Rnd"/>
                         <outlet property="pSBestLabel" destination="2WS-0V-ZXv" id="Znm-IU-obB"/>
                         <outlet property="pSBestVal" destination="Dhf-Up-WuE" id="Wdd-qp-rIS"/>
                         <outlet property="pSImageView" destination="J30-tl-ema" id="RfQ-xw-48b"/>
                         <outlet property="pSNextArrow" destination="bOt-TM-qv3" id="p2O-T5-Xlx"/>
+                        <outlet property="pSPrevArrow" destination="xp7-Po-boR" id="UDs-gr-AAi"/>
                         <outlet property="pSScoreLabel" destination="L90-ns-dDL" id="aBl-fT-GXR"/>
                         <outlet property="pSScoreVal" destination="rjF-qG-ty4" id="GKt-on-EaA"/>
                         <outlet property="patternCompletion" destination="t6n-RP-0QQ" id="uZU-hp-rdM"/>
                         <outlet property="pausedView" destination="hhm-Yb-8vg" id="PBy-vS-RTp"/>
                         <outlet property="pcHistoryNext" destination="QzR-bv-dSQ" id="lYi-c0-aHC"/>
+                        <outlet property="pcHistoryPrev" destination="yhP-Fk-coi" id="B2X-Fu-bY4"/>
                         <outlet property="scoreLabel" destination="L90-ns-dDL" id="UfQ-rZ-lsZ"/>
                         <outlet property="scoreValue" destination="F9i-FX-yfP" id="gG0-qf-cnE"/>
                         <outlet property="similarBtn" destination="V2f-zP-UL4" id="OqU-vv-fdE"/>
@@ -484,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNM-LW-6LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="822"/>
+            <point key="canvasLocation" x="792.6258992805756" y="821.58273381294975"/>
         </scene>
         <!--Username Screen-->
         <scene sceneID="0JB-Lv-NDo">
@@ -577,6 +628,7 @@
     <resources>
         <image name="0" width="320" height="290"/>
         <image name="Back Arrow" width="100" height="100"/>
+        <image name="Backward Arrow" width="115" height="37"/>
         <image name="Correct Username" width="346" height="254"/>
         <image name="Enter Username" width="378" height="254"/>
         <image name="Forward Button" width="115" height="37"/>
@@ -589,6 +641,7 @@
         <image name="Next Button" width="300" height="62"/>
         <image name="Old Button" width="300" height="62"/>
         <image name="Pattern Completion Button" width="300" height="62"/>
+        <image name="Pattern Separation Button" width="300" height="62"/>
         <image name="Pause Button" width="100" height="100"/>
         <image name="Quit Game Button" width="300" height="62"/>
         <image name="Resume Button" width="300" height="62"/>

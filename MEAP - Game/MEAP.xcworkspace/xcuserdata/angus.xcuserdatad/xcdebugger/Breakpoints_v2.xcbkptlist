@@ -74,28 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MEAP - Game/PCViewController.swift"
-            timestampString = "564305630.594021"
+            timestampString = "565275358.434442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "buttonPressed()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MEAP - Game/PCViewController.swift"
-            timestampString = "564305630.594077"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "buttonPressed()"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "StartPs(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -24,39 +24,40 @@ import AVFoundation
 class PCViewController: UIViewController {
 
     var audioPlayer: AVAudioPlayer!;
-    @IBOutlet weak var bestValue: UILabel! //Value of best score
-    @IBOutlet weak var best: UILabel!
+    @IBOutlet var bestValue: [UILabel]! //Value of best score
+    @IBOutlet var best: [UILabel]!
     //@IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var scoreValue: UILabel! //Value of score
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var startBtn: UIButton!
-    @IBOutlet weak var nextArrow: UIButton!
+    @IBOutlet var scoreValue: [UILabel]! //Value of score
+    @IBOutlet var nextButton: [UIButton]!
+    @IBOutlet var startBtn: [UIButton]!
+    @IBOutlet var nextArrow: [UIButton]!
     
     
-    @IBOutlet weak var pcHistoryNext: UIButton!
-    @IBOutlet weak var patternCompletion: UILabel!
-    @IBOutlet weak var pCLabel: UILabel!
+    @IBOutlet var pcHistoryNext: [UIButton]!
+    @IBOutlet var patternCompletion: [UILabel]!
+    @IBOutlet var pCLabel: [UILabel]!
     @IBOutlet weak var pausedView: UIView!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet  var scoreLabel: [UILabel]!
     @IBOutlet weak var muteMusic: UIButton!
     @IBOutlet weak var tutorialView: UIView!
-    
+
+
     //PS
-    @IBOutlet weak var pSImageView: UIImageView!
-    @IBOutlet weak var similarBtn: UIButton!
-    @IBOutlet weak var newBtn: UIButton!
-    @IBOutlet weak var oldBtn: UIButton!
-    @IBOutlet weak var correctLabel: UILabel!
-    @IBOutlet weak var incorrectLabel: UILabel!
-    @IBOutlet weak var pSNextArrow: UIButton!
-    @IBOutlet weak var pCNextArrow: UIButton!
-    @IBOutlet weak var pSScoreLabel: UILabel!
-    @IBOutlet weak var pSScoreVal: UILabel!
-    @IBOutlet weak var pSBestVal: UILabel!
-    @IBOutlet weak var pSBestLabel: UILabel!
+    @IBOutlet var pSImageView: [UIImageView]!
+    @IBOutlet var similarBtn: [UIButton]!
+    @IBOutlet var newBtn: [UIButton]!
+    @IBOutlet var oldBtn: [UIButton]!
+    @IBOutlet var correctLabel: [UILabel]!
+    @IBOutlet var incorrectLabel: [UILabel]!
+    @IBOutlet var pSNextArrow: [UIButton]!
+   // @IBOutlet var pCNextArrow: [UIButton]!
+    @IBOutlet var pSScoreLabel: [UILabel]!
+    @IBOutlet var pSScoreVal: [UILabel]!
+    @IBOutlet var pSBestVal: [UILabel]!
+    @IBOutlet var pSBestLabel: [UILabel]!
     var imgCount = 0
     
-   
+    
     //Tutorial Player
     var playerLooper: AVPlayerLooper!
     var playerLayer: AVPlayerLayer!
@@ -66,6 +67,7 @@ class PCViewController: UIViewController {
     var screenSize = UIScreen.main.bounds.size
     var cellChecker: Timer! //Timer used to update cells of the board
     
+    @IBOutlet weak var portraitView: SKView!
     var scene: GameScene! //Instance of the game scene
     
     //Loads GameScene into UIView and initalizes music player
@@ -86,6 +88,16 @@ class PCViewController: UIViewController {
         }
         catch{
             print(error);
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isPortrait{
+            portraitView.isHidden = false
+        }
+        else{
+            portraitView.isHidden = true
         }
     }
     
@@ -145,21 +157,25 @@ class PCViewController: UIViewController {
     //Starts Phase 2 of pattern completion
     @IBAction func Start(_ sender: Any) {
         scene.game.currentGameStage = 1
-        startBtn.isHidden = true
-        nextButton.isHidden = false
+        for btn in startBtn {
+            btn.isHidden = true
+        }
+        //(startBtn as NSArray).setValue(true, forKey: "isHidden")
+        //(nextButton as NSArray).setValue(false, forKey: "isHidden")
+
         scene.game.StartPatternCompletion()
-        pCLabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
+        //(pCLabel as NSArray).setValue("Number of Blocks Left: " + String(scene.game.cellRemaining), forKey: "text")
+
         cellChecker = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(nextButtonEnable), userInfo: nil, repeats: true)
     }
     
     //Updates whether the next button is disabled or not
     @objc func nextButtonEnable(){
-        pCLabel.text = "Number of Blocks Left: " + String(scene.game.cellRemaining)
         if(scene.game.cellRemaining == 0){
-            nextButton.isEnabled = true
+            //(nextButton as NSArray).setValue(true, forKey: "isEnabled")
         }
         else{
-            nextButton.isEnabled = false
+            //(nextButton as NSArray).setValue(false, forKey: "isEnabled")
         }
     }
 
@@ -181,39 +197,38 @@ class PCViewController: UIViewController {
     @IBAction func nextButton(_ sender: Any) {
         if(scene.game.currentRound == 9){
             
-            patternCompletion.text = "SCORES"
-            pCLabel.isHidden = true
-            scoreValue.center.x += 100
-            scoreValue.center.y -= 150
-            best.center.x -= 100
-            best.center.y -= 150
-            scoreLabel.center.x += 100
-            scoreLabel.center.y -= 150
-            bestValue.center.x -= 100
-            bestValue.center.y -= 150
-            scoreLabel.isHidden = false
-            scoreValue.isHidden = false
-            best.isHidden = false
-            bestValue.isHidden = false
+            (nextButton as NSArray).setValue("SCORES", forKey: "text")
+            
+            (pCLabel as NSArray).setValue(true, forKey: "isHidden")
+            (scoreLabel as NSArray).setValue(false, forKey: "isHidden")
+            (scoreValue as NSArray).setValue(false, forKey: "isHidden")
+            (best as NSArray).setValue(false, forKey: "isHidden")
+            (bestValue as NSArray).setValue(false, forKey: "isHidden")
+
             scene.game.FinishPatternCompletionRound()
             
             for i in 0...9{
                 scene.game.finalScore += scene.game.score[i]
             }
-            nextArrow.isHidden = true
-            nextButton.isHidden = true
-            pcHistoryNext.isHidden = false
+           
+            (nextArrow as NSArray).setValue(true, forKey: "isHidden")
+            (nextButton as NSArray).setValue(true, forKey: "isHidden")
+            (pcHistoryNext as NSArray).setValue(false, forKey: "isHidden")
+
             scene.InitiateSummary()
-            scoreValue.text = String(scene.game.finalScore)
-            bestValue.text = String(scene.game.finalScore)
+            
+            (scoreValue as NSArray).setValue(String(scene.game.finalScore), forKey: "text")
+            (bestValue as NSArray).setValue(String(scene.game.finalScore), forKey: "text")
+
             scene.game.timeUpdate.invalidate()
             scene.game.currentRound += 1
             print(scene.game.currentRound)
             print(scene.game.currentRound)
         }
         else if(scene.game.currentRound < 9){
-            nextButton.isHidden = true
-            startBtn.isHidden = false
+            (nextButton as NSArray).setValue(true, forKey: "isHidden")
+            (startBtn as NSArray).setValue(false, forKey: "isHidden")
+
             scene.game.FinishPatternCompletionRound()
             scene.game.currentRound += 1
             scene.game.InitializePatternCompletion()
@@ -227,27 +242,31 @@ class PCViewController: UIViewController {
         scene.game.PCnum += 1
         scene.InitiateSummary()
         if(scene.game.PCnum >= 9){
-            nextArrow.isHidden = false
-            pcHistoryNext.isHidden = true
+            (nextArrow as NSArray).setValue(false, forKey: "isHidden")
+            (pcHistoryNext as NSArray).setValue(true, forKey: "isHidden")
         }
     }
     
     //Start PatternSepartion
     @IBAction func StartPs(_ sender: Any) {
-        patternCompletion.text = "Pattern Separation"
+        (patternCompletion as NSArray).setValue("Pattern Separation", forKey: "text")
+
         scene.game.currentGameStage = 2
         scene.removeAllChildren()
         scene.game.InitializePatternSeparation()
-        pSImageView.image = UIImage(named: String(scene.game.image))
-        nextArrow.isHidden = true
-        pSImageView.isHidden = false
-        newBtn.isHidden = false
-        oldBtn.isHidden = false
-        similarBtn.isHidden = false
-        best.isHidden = true
-        bestValue.isHidden = true
-        scoreLabel.isHidden = true
-        scoreValue.isHidden = true
+        (pSImageView as NSArray).setValue(UIImage(named: String(scene.game.image)), forKey: "image")
+        
+        (nextArrow as NSArray).setValue(true, forKey: "isHidden")
+        (pSImageView as NSArray).setValue(false, forKey: "isHidden")
+        (newBtn as NSArray).setValue(false, forKey: "isHidden")
+        (oldBtn as NSArray).setValue(false, forKey: "isHidden")
+        (similarBtn as NSArray).setValue(false, forKey: "isHidden")
+        (best as NSArray).setValue(true, forKey: "isHidden")
+        (bestValue as NSArray).setValue(true, forKey: "isHidden")
+        (scoreLabel as NSArray).setValue(true, forKey: "isHidden")
+        (scoreValue as NSArray).setValue(true, forKey: "isHidden")
+
+
     }
     
     //User taps Similar Button
@@ -278,43 +297,48 @@ class PCViewController: UIViewController {
     func buttonPressed(){
         if(scene.game.pSRound <= 15){
             scene.game.InitializePatternSeparation()
-            pSImageView.image = UIImage(named: String(scene.game.image))
+            (pSImageView as NSArray).setValue(UIImage(named: String(scene.game.image)), forKey: "image")
         }
         else {
             scene.game.currentGameStage = 3
             scene.game.CalculateScorePS()
-            pSScoreVal.text = String(scene.game.pSScore)
-            pSBestVal.text = String(scene.game.pSScore)
-            pSBestVal.isHidden = false
-            pSScoreVal.isHidden = false
-            pSBestLabel.isHidden = false
-            pSScoreLabel.isHidden = false
-            pSImageView.image = UIImage(named: String(scene.game.questions[0]))
-            pSNextArrow.isHidden = false
+
+            (pSScoreVal as NSArray).setValue(String(scene.game.pSScore), forKey: "text")
+            (pSBestVal as NSArray).setValue(String(scene.game.pSScore), forKey: "text")
+            
+            (pSBestVal as NSArray).setValue(false, forKey: "isHidden")
+            (pSScoreVal as NSArray).setValue(false, forKey: "isHidden")
+            (pSBestLabel as NSArray).setValue(false, forKey: "isHidden")
+            (pSScoreLabel as NSArray).setValue(false, forKey: "isHidden")
+
+            (pSImageView as NSArray).setValue(UIImage(named: String(scene.game.questions[0])), forKey: "image")
+
+            (pSNextArrow as NSArray).setValue(false, forKey: "isHidden")
+
             
             if(scene.game.userAnswers[0] == 1){
-                similarBtn.isEnabled = true
-                oldBtn.isEnabled = false
-                newBtn.isEnabled = false
+                (similarBtn as NSArray).setValue(true, forKey: "isEnabled")
+                (oldBtn as NSArray).setValue(false, forKey: "isEnabled")
+                (newBtn as NSArray).setValue(false, forKey: "isEnabled")
             }
             else if(scene.game.userAnswers[0] == 2){
-                similarBtn.isEnabled = false
-                oldBtn.isEnabled = false
-                newBtn.isEnabled = true
+                (similarBtn as NSArray).setValue(false, forKey: "isEnabled")
+                (oldBtn as NSArray).setValue(false, forKey: "isEnabled")
+                (newBtn as NSArray).setValue(true, forKey: "isEnabled")
             }
             else{
-                similarBtn.isEnabled = false
-                oldBtn.isEnabled = true
-                newBtn.isEnabled = false
+                (similarBtn as NSArray).setValue(false, forKey: "isEnabled")
+                (oldBtn as NSArray).setValue(true, forKey: "isEnabled")
+                (newBtn as NSArray).setValue(false, forKey: "isEnabled")
             }
             
             if(scene.game.userAnswers[0] == scene.game.correctAnswer[0]){
-                correctLabel.isHidden = false
-                incorrectLabel.isHidden = true
+                (correctLabel as NSArray).setValue(false, forKey: "isHidden")
+                (incorrectLabel as NSArray).setValue(true, forKey: "isHidden")
             }
             else{
-                correctLabel.isHidden = true
-                incorrectLabel.isHidden = false
+                (correctLabel as NSArray).setValue(true, forKey: "isHidden")
+                (incorrectLabel as NSArray).setValue(false, forKey: "isHidden")
             }
         }
     }
@@ -327,31 +351,32 @@ class PCViewController: UIViewController {
             performSegue(withIdentifier: "ReturnHome", sender: self)
         }
         
-        pSImageView.image = UIImage(named: String(scene.game.questions[imgCount]))
+        (pSImageView as NSArray).setValue(UIImage(named: String(scene.game.questions[imgCount])), forKey: "image")
+
         
         if(scene.game.userAnswers[imgCount] == 1){
-            similarBtn.isEnabled = true
-            oldBtn.isEnabled = false
-            newBtn.isEnabled = false
+            (similarBtn as NSArray).setValue(true, forKey: "isEnabled")
+            (oldBtn as NSArray).setValue(false, forKey: "isEnabled")
+            (newBtn as NSArray).setValue(false, forKey: "isEnabled")
         }
         else if(scene.game.userAnswers[imgCount] == 2){
-            similarBtn.isEnabled = false
-            oldBtn.isEnabled = false
-            newBtn.isEnabled = true
+            (similarBtn as NSArray).setValue(false, forKey: "isEnabled")
+            (oldBtn as NSArray).setValue(false, forKey: "isEnabled")
+            (newBtn as NSArray).setValue(true, forKey: "isEnabled")
         }
         else{
-            similarBtn.isEnabled = false
-            oldBtn.isEnabled = true
-            newBtn.isEnabled = false
+            (similarBtn as NSArray).setValue(false, forKey: "isEnabled")
+            (oldBtn as NSArray).setValue(true, forKey: "isEnabled")
+            (newBtn as NSArray).setValue(false, forKey: "isEnabled")
         }
         
         if(scene.game.userAnswers[imgCount] == scene.game.correctAnswer[imgCount]){
-            correctLabel.isHidden = false
-            incorrectLabel.isHidden = true
+            (correctLabel as NSArray).setValue(false, forKey: "isHidden")
+            (incorrectLabel as NSArray).setValue(true, forKey: "isHidden")
         }
         else{
-            correctLabel.isHidden = true
-            incorrectLabel.isHidden = false
+            (correctLabel as NSArray).setValue(true, forKey: "isHidden")
+            (incorrectLabel as NSArray).setValue(false, forKey: "isHidden")
         }
     }
     

@@ -29,11 +29,19 @@ class UsernameViewController: UIViewController {
     var name: String = ""
     var newName: String = ""
     var sameName: Bool = false
+    var documentID: String = ""
+    var appUser: String = "appUser"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameField.delegate = self
         
+        // sees if user has already made a username (stored in core data)
+        // if username exists, directly segue to home screen
+        let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(appUser)"
+        if FileManager.default.fileExists(atPath: userNamePath) {
+            performSegue(withIdentifier: "HomeScreenSegue", sender: nil)
+        }
     }
 
     override var shouldAutorotate: Bool {
@@ -52,24 +60,107 @@ class UsernameViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.name = document.get("userName") as! String
-                    if(self.newName == self.name) {
-                        self.usernameImage.isHidden = true
-                        self.incorrectImage.isHidden = false
-                    }
-                    else {
-                        db.collection("appUser").document("name").setData(["userName": self.newName])
-                        self.usernameImage.isHidden = true
-                        self.incorrectImage.isHidden = true
-                        self.correctImage.isHidden = false
-                        self.forwardArrow.isHidden = false
+                    self.documentID = document.documentID
+                    if (self.documentID == self.newName) {
+                        self.sameName = true;
+                        break;
                     }
                 }
             }
         }
+        if self.sameName {
+            self.usernameImage.isHidden = true
+            self.incorrectImage.isHidden = false
+        }
+        else {
+            db.collection("appUser").document(self.newName).setData(["userName" : self.newName,
+                                                                     "bestScorePC" : 0,
+                                                                     "bestScorePS" : 0])
+            db.collection("appUserGraph").document(self.newName).setData(["Dec" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Nov" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Oct" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Sept" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Aug" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "July" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "June" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "May" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "April" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Mar" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Feb" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          "Jan" : ["date" : "",
+                                                                                   "gamePlays" : 0,
+                                                                                   "averageScoresPC" : 0,
+                                                                                   "totalScoresPC" : 0,
+                                                                                   "averageScoresPS" : 0,
+                                                                                   "totalScoresPS" : 0],
+                                                                          ])
+            self.usernameImage.isHidden = true
+            self.incorrectImage.isHidden = true
+            self.correctImage.isHidden = false
+            self.forwardArrow.isHidden = false
+            
+            // writes username to core data
+            let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+            let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+            try? newName.write(to: userNameUrl, atomically: false, encoding: .utf8)
+            print(try? String(contentsOf: userNameUrl, encoding: .utf8))
+        }
     }
-    
-
 }
 
 extension UIViewController : UITextFieldDelegate {

@@ -12,10 +12,18 @@
 //           -File Completed - 11/2/18
 //           -Fixed Bug - 11/4/18
 //  Known Bugs: NONE!
+//
+// db.collection("users").document("frank").updateData([
+// "age": 13,
+// "favorites.color": "Red"
+// ])
 
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseStorage
+import Charts
 
 //Controls the main menu story board
 class GameViewController: UIViewController {
@@ -28,12 +36,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var startingLabel: UIImageView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var tutorialView: UIView!
+    @IBOutlet weak var gameScoreChart: LineChartView!
+    @IBOutlet weak var gamePlayChart: LineChartView!
     var countDownTimer:Timer! //Timer used to count down
     var player: AVQueuePlayer!
     var screenSize = UIScreen.main.bounds.size
     var playerLooper: AVPlayerLooper!
     var playerLayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
+    var graphView: String = "Daily" // shows daily view by default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +135,37 @@ class GameViewController: UIViewController {
     //Shows History view
     @IBAction func History(_ sender: Any) {
         historyView.isHidden = false
+        //add chart code here
+        UpdateGraph()
+    }
+    
+    func UpdateGraph() {
+//        var lineChartEntry = [ChartDataEntry]()
+//        if (graphView == "Daily") {
+            var lineChartEntry = [ChartDataEntry]()
+            for i in 0..<30 {
+                let value = ChartDataEntry(x: Double(i), y: Double(i))
+                lineChartEntry.append(value)
+            }
+            let line1 = LineChartDataSet(values: lineChartEntry, label: "Number")
+            line1.colors = [NSUIColor.blue]
+            let data = LineChartData()
+            data.addDataSet(line1)
+            gameScoreChart.data = data
+            gameScoreChart.chartDescription?.text = "Game Score Chart"
+            
+            
+//            let values = (0..<31).map { (i) -> ChartDataEntry in
+//                let val = Double(arc4random_uniform(UInt32(31)) % 6)
+//                return ChartDataEntry(x: Double(i), y: val)
+//            }
+//            let set1 = LineChartDataSet(values: values, label: "DataSet 1")
+//            let set2 = LineChartDataSet(values: values, label: "DataSet 1")
+//            let data1 = LineChartData(dataSet: set1)
+//            let data2 = LineChartData(dataSet: set2)
+//            self.gameScoreChart.data = data1
+//            self.gamePlayChart.data = data2
+//        }
     }
     
     //Hides History view

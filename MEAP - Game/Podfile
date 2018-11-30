@@ -10,6 +10,7 @@ target 'MEAP' do
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Charts'
 
   target 'MEAPTests' do
     # inherit! :search_paths

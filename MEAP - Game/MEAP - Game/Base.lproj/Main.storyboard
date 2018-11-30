@@ -107,6 +107,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB9-Ng-Y3b" userLabel="Game Score Chart" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="97" y="418" width="420" height="288"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HISTORY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-rn-Uhg">
                                                 <rect key="frame" x="422" y="89" width="269" height="99"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,6 +127,11 @@
                                                     <action selector="ReturnToMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="x5R-dA-EsI"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ws9-iv-Xfs" userLabel="Game Play Chart" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="612" y="418" width="420" height="288"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -133,7 +143,7 @@
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <viewLayoutGuide key="safeArea" id="fVI-Sa-kWi"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99H-HW-a09">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99H-HW-a09">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -168,9 +178,16 @@
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="99H-HW-a09"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="Number" destination="F0k-WG-OFg" id="9z6-rJ-pTs"/>
+                        <outlet property="gamePlayChart" destination="ws9-iv-Xfs" id="Ex8-z9-r2G"/>
+                        <outlet property="gameScoreChart" destination="JB9-Ng-Y3b" id="LTY-Kn-c1h"/>
                         <outlet property="historyView" destination="QXd-Sq-Poy" id="BlQ-aF-pfZ"/>
                         <outlet property="menuButton" destination="LoQ-mu-kQl" id="dxh-J6-160"/>
                         <outlet property="menuView" destination="gqC-Hc-vlp" id="ALG-iV-u2R"/>
@@ -546,7 +563,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Forward Button"/>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" id="taT-SM-bIh"/>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="HomeScreenSegue" id="taT-SM-bIh"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Correct Username" translatesAutoresizingMaskIntoConstraints="NO" id="naD-b6-s9I">
@@ -575,14 +592,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="320" height="290"/>
+        <image name="0" width="641" height="581"/>
         <image name="Back Arrow" width="100" height="100"/>
-        <image name="Correct Username" width="346" height="254"/>
-        <image name="Enter Username" width="378" height="254"/>
-        <image name="Forward Button" width="115" height="37"/>
+        <image name="Correct Username" width="346" height="254.5"/>
+        <image name="Enter Username" width="378" height="254.5"/>
+        <image name="Forward Button" width="115" height="37.5"/>
         <image name="History Button" width="300" height="62"/>
         <image name="How-To" width="100" height="100"/>
-        <image name="Incorrect Username" width="378" height="254"/>
+        <image name="Incorrect Username" width="378" height="254.5"/>
         <image name="Menu" width="100" height="100"/>
         <image name="MuteMusic" width="300" height="62"/>
         <image name="New Button" width="300" height="62"/>
@@ -603,6 +620,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oFw-4r-Yjr"/>
+        <segue reference="taT-SM-bIh"/>
     </inferredMetricsTieBreakers>
 </document>

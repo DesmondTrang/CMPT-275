@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcw-ep-V6Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcw-ep-V6Z">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -283,7 +283,7 @@
                                 <color key="textColor" red="0.16470588235294117" green="0.60392156862745094" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNt-xe-tDs" userLabel="PSSCore">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNt-xe-tDs" userLabel="Score">
                                 <rect key="frame" x="152" y="240" width="138" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
@@ -363,7 +363,46 @@
                                     <action selector="PSPrev:" destination="wLl-VU-nV0" eventType="touchUpInside" id="11A-dF-6Yv"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Yb-8vg">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-0V-ZXv" userLabel="PsBest">
+                                <rect key="frame" x="835" y="242" width="138" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-PA-4d7" userLabel="Next Button">
+                                <rect key="frame" x="792" y="730" width="300" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Next Button"/>
+                                <connections>
+                                    <action selector="StartPs:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Skb-WA-Ws4"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzR-bv-dSQ" userLabel="PCHistoryNext">
+                                <rect key="frame" x="591" y="777" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Forward Button"/>
+                                <connections>
+                                    <action selector="PCHistoryNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Nwk-py-UhS"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-Fk-coi" userLabel="PCHistoryPrev">
+                                <rect key="frame" x="406" y="777" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Backward Arrow"/>
+                                <connections>
+                                    <action selector="PCHistoryPrev:" destination="wLl-VU-nV0" eventType="touchUpInside" id="lJL-HK-7zA"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka8-24-a9f" userLabel="PSDone">
+                                <rect key="frame" x="792" y="726" width="300" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Next Button"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="dht-Tt-NCk"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Yb-8vg">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -410,7 +449,7 @@
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <viewLayoutGuide key="safeArea" id="bcM-08-Zg9"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-vD-vS3">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-vD-vS3">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -454,54 +493,9 @@
                                 </accessibility>
                                 <viewLayoutGuide key="safeArea" id="pXo-Lb-0In"/>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-0V-ZXv" userLabel="PsBest">
-                                <rect key="frame" x="835" y="242" width="138" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-PA-4d7" userLabel="Next Button">
-                                <rect key="frame" x="792" y="730" width="300" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Next Button"/>
-                                <connections>
-                                    <action selector="StartPs:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Skb-WA-Ws4"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzR-bv-dSQ" userLabel="PCHistoryNext">
-                                <rect key="frame" x="591" y="777" width="115" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Forward Button"/>
-                                <connections>
-                                    <action selector="PCHistoryNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Nwk-py-UhS"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-Fk-coi" userLabel="PCHistoryPrev">
-                                <rect key="frame" x="406" y="777" width="115" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Backward Arrow"/>
-                                <connections>
-                                    <action selector="PCHistoryPrev:" destination="wLl-VU-nV0" eventType="touchUpInside" id="lJL-HK-7zA"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka8-24-a9f" userLabel="PSDone">
-                                <rect key="frame" x="792" y="726" width="300" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Next Button"/>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="dht-Tt-NCk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="ECI-m9-KEg"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="hhm-Yb-8vg"/>
-                                <exclude reference="nFD-vD-vS3"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="PSDone" destination="Ka8-24-a9f" id="sTJ-qY-Alc"/>
@@ -526,7 +520,7 @@
                         <outlet property="pausedView" destination="hhm-Yb-8vg" id="PBy-vS-RTp"/>
                         <outlet property="pcHistoryNext" destination="QzR-bv-dSQ" id="lYi-c0-aHC"/>
                         <outlet property="pcHistoryPrev" destination="yhP-Fk-coi" id="B2X-Fu-bY4"/>
-                        <outlet property="scoreLabel" destination="L90-ns-dDL" id="UfQ-rZ-lsZ"/>
+                        <outlet property="scoreLabel" destination="eNt-xe-tDs" id="xjT-he-Kap"/>
                         <outlet property="scoreValue" destination="F9i-FX-yfP" id="gG0-qf-cnE"/>
                         <outlet property="similarBtn" destination="V2f-zP-UL4" id="OqU-vv-fdE"/>
                         <outlet property="startBtn" destination="fQk-id-pF5" id="Mox-bt-4qc"/>
@@ -626,15 +620,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="320" height="290"/>
+        <image name="0" width="641" height="581"/>
         <image name="Back Arrow" width="100" height="100"/>
-        <image name="Backward Arrow" width="115" height="37"/>
-        <image name="Correct Username" width="346" height="254"/>
-        <image name="Enter Username" width="378" height="254"/>
-        <image name="Forward Button" width="115" height="37"/>
+        <image name="Backward Arrow" width="230" height="75"/>
+        <image name="Correct Username" width="346" height="254.5"/>
+        <image name="Enter Username" width="378" height="254.5"/>
+        <image name="Forward Button" width="115" height="37.5"/>
         <image name="History Button" width="300" height="62"/>
         <image name="How-To" width="100" height="100"/>
-        <image name="Incorrect Username" width="378" height="254"/>
+        <image name="Incorrect Username" width="378" height="254.5"/>
         <image name="Menu" width="100" height="100"/>
         <image name="MuteMusic" width="300" height="62"/>
         <image name="New Button" width="300" height="62"/>

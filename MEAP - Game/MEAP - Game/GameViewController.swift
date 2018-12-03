@@ -5,7 +5,7 @@
 //  Created by Angus Chen on 10/25/18.
 //  Copyright © 2018 Angus Chen. All rights reserved.
 //
-//  Programmers: Angus Chen
+//  Programmers: Angus Chen, Amir Fazelipour
 //  UI Created By: Desmond Trang
 //  Team: CMPT 275 Team 7 - MEAP
 //  Changes: -File Created - 10/25/18
@@ -34,6 +34,8 @@ class GameViewController: UIViewController {
     var playerLooper: AVPlayerLooper!
     var playerLayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
+    
+    typealias Request = ((_ value:Bool) -> ())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,14 +133,46 @@ class GameViewController: UIViewController {
         historyView.isHidden = true
     }
     
+    func networkAlert(completion:@escaping Request) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "MEAP could not connect to the MEAP database. The network is down or unavailable.", message: "Make sure your network connection is active and try again.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            if Connectivity.isConnectedToInternet() {
+                print("Yes! internet is available.")
+                self.startCountdown()
+            }
+            else {
+                self.networkAlert { (value) in
+                    print(value)
+                }
+
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
     //Starts game countdown
     @IBAction func startButton(_ sender: Any) {
-        startButton.isHidden = true
-        startingLabel.isHidden = false
-        number.isHidden = false
-        number.text = "3"
-        countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
-    
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlert { (value) in
+                print(value)
+            }
+        }
+        
+        else {
+            self.startCountdown()
+        }
     }
     
     //Countes down to 1 and segue to game view
@@ -159,6 +193,15 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func startCountdown() {
+        startButton.isHidden = true
+        startingLabel.isHidden = false
+        number.isHidden = false
+        number.text = "3"
+        countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+    }
 }
+
 
 

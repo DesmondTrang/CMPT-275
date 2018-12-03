@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		148C4E661BF40B7274357582 /* Pods_MEAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */; };
+		2981B7296BD060354C883EC1 /* Pods_MEAP_MEAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED2078546454336332390E2 /* Pods_MEAP_MEAPTests.framework */; };
 		63247738D24B4F9E4C220FDC /* Pods_MEAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */; };
 		92294F1A218ADEC700630436 /* PCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92294F19218ADEC700630436 /* PCViewController.swift */; };
 		922D3A5721A26C57004F646E /* PSPicture in Resources */ = {isa = PBXBuildFile; fileRef = 922D3A5621A26C57004F646E /* PSPicture */; };
@@ -23,6 +24,8 @@
 		B17B4EC6218266A800F8101A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4EC5218266A800F8101A /* GameManager.swift */; };
 		C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */; };
 		DA8EC263D0FB490DE2F4BC70 /* Pods_MEAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */; };
+		F25E27D421B3A72200B836A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25E27D321B3A72200B836A6 /* NetworkManager.swift */; };
+		F8E4C240D384D52EEAB9D414 /* Pods_MEAP_MEAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35EA3A4F79B54C9045D343 /* Pods_MEAP_MEAPUITests.framework */; };
 		F916A3B821A34C290022C063 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F916A3B721A34C290022C063 /* GoogleService-Info.plist */; };
 		F916A3BE21A3599A0022C063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F916A3BD21A3599A0022C063 /* LaunchScreen.storyboard */; };
 		F916A3C021A359FD0022C063 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916A3BF21A359FD0022C063 /* UsernameViewController.swift */; };
@@ -49,7 +52,9 @@
 /* Begin PBXFileReference section */
 		06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPUITests/Pods-MEAPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		15182721D66AC6023CCE1B35 /* Pods-MEAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPTests/Pods-MEAPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B35EA3A4F79B54C9045D343 /* Pods_MEAP_MEAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAP_MEAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48F0A34260FB6DF642BC073B /* Pods-MEAP-MEAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		547B38BB35E979EA0CE4620E /* Pods-MEAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP/Pods-MEAP.release.xcconfig"; sourceTree = "<group>"; };
 		5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85217D6C17C22CD1DAF1BE4E /* Pods-MEAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP/Pods-MEAP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +62,8 @@
 		92294F19218ADEC700630436 /* PCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCViewController.swift; sourceTree = "<group>"; };
 		922D3A5621A26C57004F646E /* PSPicture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PSPicture; sourceTree = "<group>"; };
 		923B9025218FDE540032D8B4 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
+		9A1F85C1FC91684A36DBF106 /* Pods-MEAP-MEAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests.release.xcconfig"; sourceTree = "<group>"; };
+		9ED2078546454336332390E2 /* Pods_MEAP_MEAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAP_MEAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17B4E8E2182650A00F8101A /* MEAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17B4E912182650A00F8101A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B17B4E932182650A00F8101A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -66,15 +73,18 @@
 		B17B4E9E2182650B00F8101A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B17B4EA32182650B00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EA82182650B00F8101A /* MEAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameTests.swift"; sourceTree = "<group>"; };
+		B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEAP___GameTests.swift; sourceTree = "<group>"; };
 		B17B4EAE2182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EB32182650C00F8101A /* MEAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameUITests.swift"; sourceTree = "<group>"; };
+		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEAP___GameUITests.swift; sourceTree = "<group>"; };
 		B17B4EB92182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EC5218266A800F8101A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPUITests/Pods-MEAPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C371DF5B056BCFD41FDA4E18 /* Pods-MEAP-MEAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B4FFB7218A8BE100E6899B /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		CD392C15628517B28B87D1CC /* Pods-MEAP-MEAPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MEAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F25E27D321B3A72200B836A6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F916A3B721A34C290022C063 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F916A3BD21A3599A0022C063 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F916A3BF21A359FD0022C063 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				148C4E661BF40B7274357582 /* Pods_MEAPTests.framework in Frameworks */,
+				2981B7296BD060354C883EC1 /* Pods_MEAP_MEAPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63247738D24B4F9E4C220FDC /* Pods_MEAPUITests.framework in Frameworks */,
+				F8E4C240D384D52EEAB9D414 /* Pods_MEAP_MEAPUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +127,8 @@
 				5DCFF900A92F28ED9FB8272F /* Pods_MEAP.framework */,
 				EFB5031D13B3C4707F09076D /* Pods_MEAPTests.framework */,
 				3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */,
+				9ED2078546454336332390E2 /* Pods_MEAP_MEAPTests.framework */,
+				2B35EA3A4F79B54C9045D343 /* Pods_MEAP_MEAPUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +142,10 @@
 				89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */,
 				06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */,
 				B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */,
+				C371DF5B056BCFD41FDA4E18 /* Pods-MEAP-MEAPTests.debug.xcconfig */,
+				9A1F85C1FC91684A36DBF106 /* Pods-MEAP-MEAPTests.release.xcconfig */,
+				CD392C15628517B28B87D1CC /* Pods-MEAP-MEAPUITests.debug.xcconfig */,
+				48F0A34260FB6DF642BC073B /* Pods-MEAP-MEAPUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -173,6 +191,7 @@
 				B17B4EA32182650B00F8101A /* Info.plist */,
 				C5B4FFB6218A8B9400E6899B /* Music */,
 				B17B4EC5218266A800F8101A /* GameManager.swift */,
+				F25E27D321B3A72200B836A6 /* NetworkManager.swift */,
 			);
 			path = "MEAP - Game";
 			sourceTree = "<group>";
@@ -215,6 +234,7 @@
 				B17B4E8B2182650A00F8101A /* Frameworks */,
 				B17B4E8C2182650A00F8101A /* Resources */,
 				A293CF672EB3FC3A9D21D26C /* [CP] Embed Pods Frameworks */,
+				A56046CFE880507C91A6D979 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +253,8 @@
 				B17B4EA42182650B00F8101A /* Sources */,
 				B17B4EA52182650B00F8101A /* Frameworks */,
 				B17B4EA62182650B00F8101A /* Resources */,
+				42B6533BEB7346018FA310CD /* [CP] Embed Pods Frameworks */,
+				44CE8DB7BBA3968C39C2867E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +274,8 @@
 				B17B4EAF2182650C00F8101A /* Sources */,
 				B17B4EB02182650C00F8101A /* Frameworks */,
 				B17B4EB12182650C00F8101A /* Resources */,
+				8299727D3A89E1A322308AA0 /* [CP] Embed Pods Frameworks */,
+				84167C7F67BC5C3671D14609 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -382,11 +406,71 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MEAPTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MEAP-MEAPTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42B6533BEB7346018FA310CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44CE8DB7BBA3968C39C2867E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64402F636B48CE6633DE0A6A /* [CP] Check Pods Manifest.lock */ = {
@@ -404,11 +488,71 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MEAPUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MEAP-MEAPUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8299727D3A89E1A322308AA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84167C7F67BC5C3671D14609 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A293CF672EB3FC3A9D21D26C /* [CP] Embed Pods Frameworks */ = {
@@ -420,8 +564,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -429,14 +578,41 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A56046CFE880507C91A6D979 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEAP/Pods-MEAP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -449,6 +625,7 @@
 				B17B4E982182650A00F8101A /* GameScene.swift in Sources */,
 				B17B4EC6218266A800F8101A /* GameManager.swift in Sources */,
 				B17B4E9A2182650A00F8101A /* GameViewController.swift in Sources */,
+				F25E27D421B3A72200B836A6 /* NetworkManager.swift in Sources */,
 				92294F1A218ADEC700630436 /* PCViewController.swift in Sources */,
 				F916A3C021A359FD0022C063 /* UsernameViewController.swift in Sources */,
 				B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */,
@@ -650,7 +827,7 @@
 		};
 		B17B4EC02182650C00F8101A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15182721D66AC6023CCE1B35 /* Pods-MEAPTests.debug.xcconfig */;
+			baseConfigurationReference = C371DF5B056BCFD41FDA4E18 /* Pods-MEAP-MEAPTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -671,7 +848,7 @@
 		};
 		B17B4EC12182650C00F8101A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */;
+			baseConfigurationReference = 9A1F85C1FC91684A36DBF106 /* Pods-MEAP-MEAPTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -692,7 +869,7 @@
 		};
 		B17B4EC32182650C00F8101A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06DBFA3CF9733005402722D3 /* Pods-MEAPUITests.debug.xcconfig */;
+			baseConfigurationReference = CD392C15628517B28B87D1CC /* Pods-MEAP-MEAPUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -712,7 +889,7 @@
 		};
 		B17B4EC42182650C00F8101A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */;
+			baseConfigurationReference = 48F0A34260FB6DF642BC073B /* Pods-MEAP-MEAPUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

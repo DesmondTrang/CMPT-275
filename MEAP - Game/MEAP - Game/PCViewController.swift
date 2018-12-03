@@ -22,7 +22,7 @@ import AVFoundation
 
 //Controls the Pattern Completion game view
 class PCViewController: UIViewController {
-
+    
     var audioPlayer: AVAudioPlayer!;
     @IBOutlet weak var bestValue: UILabel! //Value of best score
     @IBOutlet weak var best: UILabel!
@@ -32,6 +32,7 @@ class PCViewController: UIViewController {
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var nextArrow: UIButton!
     
+    typealias Request = ((_ value:Bool) -> ())
     
     @IBOutlet weak var pcHistoryNext: UIButton!
     @IBOutlet weak var patternCompletion: UILabel!
@@ -56,13 +57,13 @@ class PCViewController: UIViewController {
     @IBOutlet weak var pSBestLabel: UILabel!
     var imgCount = 0
     
-   
+    
     //Tutorial Player
     var playerLooper: AVPlayerLooper!
     var playerLayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
     var player: AVQueuePlayer!
-   
+    
     var screenSize = UIScreen.main.bounds.size
     var cellChecker: Timer! //Timer used to update cells of the board
     
@@ -162,7 +163,7 @@ class PCViewController: UIViewController {
             nextButton.isEnabled = false
         }
     }
-
+    
     //Mutes or plays music
     @IBAction func MuteMusic(_ sender: Any) {
         if(audioPlayer.isPlaying == true){
@@ -176,9 +177,54 @@ class PCViewController: UIViewController {
         }
     }
     
+    func networkAlert(completion:@escaping Request) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "MEAP could not connect to the MEAP database. The network is down or unavailable.", message: "Make sure your network connection is active and try again.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            if Connectivity.isConnectedToInternet() {
+                print("Yes! internet is available.")
+                if (self.scene.game.PC){
+                    self.proceed()
+                }
+                else {
+                    self.proceedNextPS()
+                }
+                
+            }
+            else {
+                self.networkAlert { (value) in
+                    print(value)
+                }
+                
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     //Takes user to game summary screen.
     //Screen objects are moved and updated
     @IBAction func nextButton(_ sender: Any) {
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlert { (value) in
+                print(value)
+            }
+        }
+            
+        else {
+            self.proceed()
+        }
+    }
+    
+    func proceed() {
         if(scene.game.currentRound == 9){
             
             patternCompletion.text = "SCORES"
@@ -219,8 +265,6 @@ class PCViewController: UIViewController {
             scene.game.InitializePatternCompletion()
             
         }
-            //For now next button will show performance history
-            //replace this with actual left and right buttons to scroll through
     }
     
     @IBAction func PCHistoryNext(_ sender: Any) {
@@ -273,9 +317,23 @@ class PCViewController: UIViewController {
             buttonPressed()
         }
     }
-  
+    
     //User pressed New, Old or Similar
     func buttonPressed(){
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlert { (value) in
+                print(value)
+            }
+        }
+            
+        else {
+            self.proceedNextPS()
+        }
+    }
+    
+    func proceedNextPS() {
         if(scene.game.pSRound <= 15){
             scene.game.InitializePatternSeparation()
             pSImageView.image = UIImage(named: String(scene.game.image))

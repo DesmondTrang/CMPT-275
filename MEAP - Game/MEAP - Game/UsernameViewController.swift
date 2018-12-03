@@ -171,13 +171,24 @@ class UsernameViewController: UIViewController {
                 else {
                         
                     // stores data in FB in two different collections
-                    let month = currentDayMonth().month
-                    let day = currentDayMonth().day
+//                    let month = currentDayMonth().month
+//                    let day = currentDayMonth().day
                     db.collection("appUser").document(self.newName).setData(["userName" : self.newName,
                                                                                      "bestScorePC" : 0,
                                                                                      "bestScorePS" : 0,
                                                                                      "userLevel" : "easy"])
-                    db.collection("appUserGraph").document(self.newName).setData([month : [day :
+                    for month in 1...12 {
+                        for day in 1...31 {
+                            if (month == 1 && day == 1) {
+                                db.collection("appUserGraph").document(self.newName).setData([String(month) : [String(day) :
+                                    [ "gamePlays" : 0,
+                                      "averageScoresPC" : 0,
+                                      "totalScoresPC" : 0,
+                                      "averageScoresPS" : 0,
+                                      "totalScoresPS" : 0 ]
+                                    ]])
+                            }
+                            db.collection("appUserGraph").document(self.newName).updateData([String(month) : [String(day) :
                                                                                             [ "gamePlays" : 0,
                                                                                               "averageScoresPC" : 0,
                                                                                               "totalScoresPC" : 0,
@@ -185,6 +196,8 @@ class UsernameViewController: UIViewController {
                                                                                               "totalScoresPS" : 0 ]
                                                                                             ]
                                                                                 ])
+                        }
+                    }
                     
                     self.usernameImage.isHidden = true
                     self.incorrectImage.isHidden = true

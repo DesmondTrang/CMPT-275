@@ -169,6 +169,7 @@ class GameManager{
     var timeUpdate: Timer! //Used to update timer
     var cellRemaining: Int!
     var gameStage: Int!
+    var PC: Bool!
     var paused: Bool!
     //Version 2
     var currentRound: Int!
@@ -201,7 +202,7 @@ class GameManager{
         randomIndex = 0
         multiplier = 0
         userLevel = 0
-        
+        PC = true
         levelUpIfTwo = 0
         levelDownIfTwo = 0
         percentageCompleted = 0
@@ -212,6 +213,7 @@ class GameManager{
     func InitializePatternCompletion(){
         timer = 0
         percentageCompleted = 0
+        PC = true
         
         //Generate random index based on userLevel
         randomIndex = Int(arc4random_uniform(UInt32(rounds[userLevel].count)))
@@ -314,6 +316,7 @@ class GameManager{
     
     //Randomly selects image to display
     func InitializePatternSeparation(){
+        PC = false
         let rand = Int(arc4random()%27)
         image = all[rand]
     }
@@ -325,7 +328,7 @@ class GameManager{
         pSRound+=1
         userAnswers.append(answer)
         var correctAn = 0
-       
+        
         if(similar.first(where: {$0 == image}) != nil){
             correctAn = 1
         }

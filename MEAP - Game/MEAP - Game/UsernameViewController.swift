@@ -25,6 +25,10 @@ class UsernameViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var clearUsernameButton: UIButton!
     @IBOutlet weak var forwardArrow: UIButton!
+    
+    typealias Request = ((_ value:Bool) -> ())
+
+    
 
     var name: String = ""
     var newName: String = ""
@@ -40,6 +44,19 @@ class UsernameViewController: UIViewController {
         let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(appUser)"
         if FileManager.default.fileExists(atPath: userNamePath) {
             performSegue(withIdentifier: "HomeScreenSegue", sender: nil)
+        }
+        
+        // query firebase for specific data
+        let db = Firestore.firestore()
+        db.collection("appUserGraph").whereField("userName", isEqualTo: "??").getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot!.documents {
+                    let userLevel = document.get("userLevel") as! String
+                    print(userLevel)
+                }
+            }
         }
         
         // generate data for chart
@@ -144,8 +161,49 @@ class UsernameViewController: UIViewController {
         return true
     }
 
+    func networkAlert(completion:@escaping Request) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "MEAP could not connect to the MEAP database. The network is down or unavailable.", message: "Make sure your network connection is active and try again.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            if Connectivity.isConnectedToInternet() {
+                print("Yes! internet is available.")
+                self.confirm()
+            }
+            else {
+                self.networkAlert { (value) in
+                    print(value)
+                }
+                
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     //User creates user with username
     @IBAction func EnterConfirm(_ sender: Any) {
+        //user enters the data and it is stored in the variable "newName"
+        //check to see if "name" exists in the database
+        
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlert { (value) in
+                print(value)
+            }
+        }
+            
+        else {
+            self.confirm()
+        }
+    }
+    
+    func confirm() {
         //user enters the data and it is stored in the variable "newName"
         //check to see if "name" exists in the database
         newName = usernameField.text!
@@ -169,33 +227,84 @@ class UsernameViewController: UIViewController {
                     self.incorrectImage.isHidden = false
                 }
                 else {
-                        
+                    
                     // stores data in FB in two different collections
-//                    let month = currentDayMonth().month
-//                    let day = currentDayMonth().day
+                    //                    let month = currentDayMonth().month
+                    //                    let day = currentDayMonth().day
                     db.collection("appUser").document(self.newName).setData(["userName" : self.newName,
-                                                                                     "bestScorePC" : 0,
-                                                                                     "bestScorePS" : 0,
-                                                                                     "userLevel" : "easy"])
+                                                                             "bestScorePC" : 0,
+                                                                             "bestScorePS" : 0,
+                                                                             "userLevel" : "easy"])
                     for month in 1...12 {
-                        for day in 1...31 {
-                            if (month == 1 && day == 1) {
-                                db.collection("appUserGraph").document(self.newName).setData([String(month) : [String(day) :
-                                    [ "gamePlays" : 0,
-                                      "averageScoresPC" : 0,
-                                      "totalScoresPC" : 0,
-                                      "averageScoresPS" : 0,
-                                      "totalScoresPS" : 0 ]
-                                    ]])
-                            }
-                            db.collection("appUserGraph").document(self.newName).updateData([String(month) : [String(day) :
-                                                                                            [ "gamePlays" : 0,
-                                                                                              "averageScoresPC" : 0,
-                                                                                              "totalScoresPC" : 0,
-                                                                                              "averageScoresPS" : 0,
-                                                                                              "totalScoresPS" : 0 ]
-                                                                                            ]
-                                                                                ])
+                        if (month == 1) {
+                            db.collection("appUserGraph").document(self.newName).setData([String(month) :
+                                [ "1" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "2" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "3" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "4" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "5" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "6" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "7" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "8" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "9" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "10" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "11" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "12" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "13" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "14" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "15" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "16" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "17" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "18" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "19" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "20" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "21" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "22" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "23" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "24" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "25" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "26" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "27" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "28" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "29" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "30" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "31" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0]
+                                ]])
+                        }
+                        else {
+                            db.collection("appUserGraph").document(self.newName).updateData([String(month) :
+                                [ "1" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "2" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "3" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "4" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "5" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "6" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "7" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "8" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "9" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "10" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "11" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "12" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "13" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "14" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "15" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "16" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "17" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "18" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "19" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "20" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "21" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "22" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "23" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "24" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "25" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "26" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "27" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "28" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "29" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "30" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0],
+                                  "31" : [ "gamePlays" : 0, "averageScoresPC" : 0, "totalScoresPC" : 0, "averageScoresPS" : 0, "totalScoresPS" : 0]
+                                ]])
                         }
                     }
                     
@@ -213,7 +322,7 @@ class UsernameViewController: UIViewController {
             }
             
         }
-       
+        
     }
 }
 

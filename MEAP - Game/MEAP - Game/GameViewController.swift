@@ -56,6 +56,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var monthGSAxis: UIImageView!
     @IBOutlet weak var monthGPAxis: UIImageView!
     
+    typealias Request = ((_ value:Bool) -> ())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -235,8 +237,8 @@ class GameViewController: UIViewController {
         patternSeparation.colors = [NSUIColor.green]
         patternSeparation.setCircleColors(NSUIColor.green)
         patternSeparation.circleHoleColor = UIColor.green
-        patternSeparation.circleHoleRadius = 2.0
-        patternSeparation.circleRadius = 2.0
+        patternSeparation.circleHoleRadius = 4.0
+        patternSeparation.circleRadius = 4.0
         patternSeparation.drawValuesEnabled = false
         
         let xAxis = gameScoreChart.xAxis
@@ -388,12 +390,25 @@ class GameViewController: UIViewController {
     
     //Starts game countdown
     @IBAction func startButton(_ sender: Any) {
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlert { (value) in
+                print(value)
+            }
+        }
+            
+        else {
+            self.startCountdown()
+        }
+    }
+    
+    func startCountdown() {
         startButton.isHidden = true
         startingLabel.isHidden = false
         number.isHidden = false
         number.text = "3"
         countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
-    
     }
     
     //Countes down to 1 and segue to game view
@@ -409,6 +424,31 @@ class GameViewController: UIViewController {
             performSegue(withIdentifier: "StartPC", sender: self)
             //segue to game screen
         }
+    }
+    
+    func networkAlert(completion:@escaping Request) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "MEAP could not connect to the MEAP database. The network is down or unavailable.", message: "Make sure your network connection is active and try again.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            if Connectivity.isConnectedToInternet() {
+                print("Yes! internet is available.")
+                self.startCountdown()
+            }
+            else {
+                self.networkAlert { (value) in
+                    print(value)
+                }
+                
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     override var prefersStatusBarHidden: Bool {

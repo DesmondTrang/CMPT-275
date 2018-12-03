@@ -108,10 +108,26 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB9-Ng-Y3b" userLabel="Game Score Chart" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="97" y="418" width="420" height="288"/>
+                                                <rect key="frame" x="97" y="396" width="420" height="316"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AS3-xG-cbI">
+                                                <rect key="frame" x="596" y="220" width="181" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Monthly Button"/>
+                                                <connections>
+                                                    <action selector="MonthlyBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CCu-YJ-24i"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ub-i2-VV5">
+                                                <rect key="frame" x="336" y="220" width="181" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Daily Button"/>
+                                                <connections>
+                                                    <action selector="DailyBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="DOJ-0j-Ekn"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HISTORY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-rn-Uhg">
                                                 <rect key="frame" x="422" y="89" width="269" height="99"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -128,10 +144,92 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ws9-iv-Xfs" userLabel="Game Play Chart" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="612" y="418" width="420" height="288"/>
+                                                <rect key="frame" x="596" y="396" width="420" height="316"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLK-h1-TML">
+                                                <rect key="frame" x="97" y="280" width="130" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puI-MX-CUl">
+                                                <rect key="frame" x="444" y="286" width="73" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
+                                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5f-Za-JzC">
+                                                <rect key="frame" x="944" y="283" width="72" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
+                                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-4Y-9HK">
+                                                <rect key="frame" x="97" y="316" width="154" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.99811118841171265" green="0.056421734392642975" blue="0.023219995200634003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GQ-Ca-0k2">
+                                                <rect key="frame" x="596" y="316" width="152" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.99882394075393677" green="0.41461986303329468" blue="0.027103099972009659" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEs-Jw-4X8">
+                                                <rect key="frame" x="917" y="315" width="99" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.99882394080000003" green="0.41461986299999998" blue="0.027103099969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGT-AY-ikv">
+                                                <rect key="frame" x="413" y="316" width="104" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.99811118840000002" green="0.056421734389999999" blue="0.023219995199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-5p-r7d">
+                                                <rect key="frame" x="97" y="348" width="154" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.26556563377380371" green="0.76183867454528809" blue="0.054675914347171783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best: 75" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wu-aG-qLV">
+                                                <rect key="frame" x="395" y="348" width="140" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <color key="textColor" red="0.26556563379999998" green="0.76183867449999998" blue="0.05467591435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GamePlay" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyt-0v-Dw7">
+                                                <rect key="frame" x="599" y="283" width="164" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
+                                                <color key="textColor" red="0.1647058824" green="0.60392156860000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Legend" translatesAutoresizingMaskIntoConstraints="NO" id="2sE-uu-rhX">
+                                                <rect key="frame" x="494" y="750" width="125" height="76"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Axis" translatesAutoresizingMaskIntoConstraints="NO" id="hvR-sr-Rsr" userLabel="MonthGS Axis">
+                                                <rect key="frame" x="127" y="710" width="371" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Axis" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-NU-0A9">
+                                                <rect key="frame" x="620" y="710" width="371" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -186,11 +284,21 @@
                     </view>
                     <connections>
                         <outlet property="Number" destination="F0k-WG-OFg" id="9z6-rJ-pTs"/>
+                        <outlet property="averageGamePlay" destination="4GQ-Ca-0k2" id="8id-S2-h19"/>
+                        <outlet property="averagePC" destination="iNn-4Y-9HK" id="P5n-vQ-tw9"/>
+                        <outlet property="averagePS" destination="7NU-5p-r7d" id="yPu-rV-5wi"/>
+                        <outlet property="bestGamePlay" destination="iEs-Jw-4X8" id="tKg-vM-STq"/>
+                        <outlet property="bestPC" destination="mGT-AY-ikv" id="dGZ-Ph-wLh"/>
+                        <outlet property="bestPS" destination="3wu-aG-qLV" id="517-mF-8NG"/>
+                        <outlet property="dailyBtn" destination="9ub-i2-VV5" id="kOE-ng-1HR"/>
                         <outlet property="gamePlayChart" destination="ws9-iv-Xfs" id="Ex8-z9-r2G"/>
                         <outlet property="gameScoreChart" destination="JB9-Ng-Y3b" id="LTY-Kn-c1h"/>
                         <outlet property="historyView" destination="QXd-Sq-Poy" id="BlQ-aF-pfZ"/>
                         <outlet property="menuButton" destination="LoQ-mu-kQl" id="dxh-J6-160"/>
                         <outlet property="menuView" destination="gqC-Hc-vlp" id="ALG-iV-u2R"/>
+                        <outlet property="monthGPAxis" destination="ZMV-NU-0A9" id="gpJ-nf-mZN"/>
+                        <outlet property="monthGSAxis" destination="hvR-sr-Rsr" id="9Z6-i6-dGl"/>
+                        <outlet property="monthlyBtn" destination="AS3-xG-cbI" id="MOe-or-W2c"/>
                         <outlet property="muteText" destination="mnc-ED-gy8" id="oC7-xZ-ReY"/>
                         <outlet property="startButton" destination="cby-rs-SKx" id="ifO-gl-c7b"/>
                         <outlet property="startingLabel" destination="wtJ-re-A3W" id="I4r-p4-5ha"/>
@@ -553,11 +661,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9j-Tz-ZdW" userLabel="Clear Username">
-                                <rect key="frame" x="670" y="505" width="23" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Small Cancel Button"/>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uce-rU-FIE">
                                 <rect key="frame" x="911" y="739" width="115" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -576,7 +679,6 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="WsB-dw-m3I" id="TzE-Go-m5z"/>
-                        <outlet property="clearUsernameButton" destination="e9j-Tz-ZdW" id="xeU-yh-QOc"/>
                         <outlet property="confirmButton" destination="D5p-5g-J3F" id="M76-bw-cdq"/>
                         <outlet property="correctImage" destination="naD-b6-s9I" id="5HF-14-uwD"/>
                         <outlet property="forwardArrow" destination="Uce-rU-FIE" id="kv3-Ec-Cke"/>
@@ -593,14 +695,18 @@
     </scenes>
     <resources>
         <image name="0" width="641" height="581"/>
+        <image name="Axis" width="317" height="33.5"/>
         <image name="Back Arrow" width="100" height="100"/>
         <image name="Correct Username" width="346" height="254.5"/>
+        <image name="Daily Button" width="181" height="44"/>
         <image name="Enter Username" width="378" height="254.5"/>
         <image name="Forward Button" width="115" height="37.5"/>
         <image name="History Button" width="300" height="62"/>
         <image name="How-To" width="100" height="100"/>
         <image name="Incorrect Username" width="378" height="254.5"/>
+        <image name="Legend" width="144.5" height="82"/>
         <image name="Menu" width="100" height="100"/>
+        <image name="Monthly Button" width="181" height="44"/>
         <image name="MuteMusic" width="300" height="62"/>
         <image name="New Button" width="300" height="62"/>
         <image name="Next Button" width="300" height="62"/>
@@ -611,7 +717,6 @@
         <image name="Resume Button" width="300" height="62"/>
         <image name="Return Button" width="300" height="62"/>
         <image name="Similar Button" width="300" height="62"/>
-        <image name="Small Cancel Button" width="23" height="23"/>
         <image name="Start" width="198" height="236"/>
         <image name="Start Button" width="300" height="62"/>
         <image name="Starting Label" width="298" height="236"/>

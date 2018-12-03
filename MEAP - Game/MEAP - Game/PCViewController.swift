@@ -34,6 +34,7 @@ class PCViewController: UIViewController {
     
     typealias Request = ((_ value:Bool) -> ())
     
+    @IBOutlet weak var pcHistoryPrev: UIButton!
     @IBOutlet weak var pcHistoryNext: UIButton!
     @IBOutlet weak var patternCompletion: UILabel!
     @IBOutlet weak var pCLabel: UILabel!
@@ -50,11 +51,14 @@ class PCViewController: UIViewController {
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var incorrectLabel: UILabel!
     @IBOutlet weak var pSNextArrow: UIButton!
+    @IBOutlet weak var pSPrevArrow: UIButton!
     @IBOutlet weak var pCNextArrow: UIButton!
     @IBOutlet weak var pSScoreLabel: UILabel!
     @IBOutlet weak var pSScoreVal: UILabel!
     @IBOutlet weak var pSBestVal: UILabel!
     @IBOutlet weak var pSBestLabel: UILabel!
+    @IBOutlet weak var PSDone: UIButton!
+
     var imgCount = 0
     
     
@@ -91,13 +95,13 @@ class PCViewController: UIViewController {
     }
     
     //plays and loops "Tutorial.mp4"
-    private func PlayVideo(){
+    private func PlayVideo(name: String){
         
         screenSize = UIScreen.main.bounds.size
         //Plays "Tutorial.mp4"
-        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
-        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
         playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
         
@@ -109,6 +113,8 @@ class PCViewController: UIViewController {
         player.play()
         
     }
+    
+    
     
     //Stops music when screen is left
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,7 +133,24 @@ class PCViewController: UIViewController {
     @IBAction func Tutorial(_ sender: Any) {
         scene.game.paused = true
         tutorialView.isHidden = false
-        PlayVideo()
+        PlayVideo(name: "tutorialPC")
+        
+    }
+    @IBAction func PatternSeparationTutorial(_ sender: Any) {
+        
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPS")
+    }
+    
+    @IBAction func PatternCompletionTutorial(_ sender: Any) {
+        
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPC")
+        
         
     }
     
@@ -249,9 +272,10 @@ class PCViewController: UIViewController {
             nextArrow.isHidden = true
             nextButton.isHidden = true
             pcHistoryNext.isHidden = false
+            pcHistoryPrev.isHidden = false
             scene.InitiateSummary()
             scoreValue.text = String(scene.game.finalScore)
-            bestValue.text = String(scene.game.finalScore)
+            bestValue.text = String(scene.game.finalScore)//Best PC score
             scene.game.timeUpdate.invalidate()
             scene.game.currentRound += 1
             print(scene.game.currentRound)
@@ -270,9 +294,26 @@ class PCViewController: UIViewController {
     @IBAction func PCHistoryNext(_ sender: Any) {
         scene.game.PCnum += 1
         scene.InitiateSummary()
+        if(scene.game.PCnum > 0){
+            pcHistoryPrev.isEnabled = true
+        }
         if(scene.game.PCnum >= 9){
             nextArrow.isHidden = false
-            pcHistoryNext.isHidden = true
+            pcHistoryNext.isEnabled = false
+        }
+        else{
+            pcHistoryNext.isEnabled = true
+            nextArrow.isHidden = true
+        }
+    }
+    
+    @IBAction func PCHistoryPrev(_ sender: Any) {
+        scene.game.PCnum -= 1
+        scene.InitiateSummary()
+        nextArrow.isHidden = true
+        pcHistoryNext.isEnabled = true
+        if(scene.game.PCnum == 0){
+            pcHistoryPrev.isEnabled = false
         }
     }
     
@@ -342,7 +383,7 @@ class PCViewController: UIViewController {
             scene.game.currentGameStage = 3
             scene.game.CalculateScorePS()
             pSScoreVal.text = String(scene.game.pSScore)
-            pSBestVal.text = String(scene.game.pSScore)
+            pSBestVal.text = String(scene.game.pSScore)//PS best score
             pSBestVal.isHidden = false
             pSScoreVal.isHidden = false
             pSBestLabel.isHidden = false
@@ -381,10 +422,50 @@ class PCViewController: UIViewController {
     @IBAction func PSNext(_ sender: Any) {
         imgCount+=1
         
+        pSPrevArrow.isEnabled = true
+        
         if(imgCount == 14){
-            performSegue(withIdentifier: "ReturnHome", sender: self)
+            PSDone.isHidden = false
+            pSNextArrow.isEnabled = false
         }
         
+        pSImageView.image = UIImage(named: String(scene.game.questions[imgCount]))
+        
+        if(scene.game.userAnswers[imgCount] == 1){
+            similarBtn.isEnabled = true
+            oldBtn.isEnabled = false
+            newBtn.isEnabled = false
+        }
+        else if(scene.game.userAnswers[imgCount] == 2){
+            similarBtn.isEnabled = false
+            oldBtn.isEnabled = false
+            newBtn.isEnabled = true
+        }
+        else{
+            similarBtn.isEnabled = false
+            oldBtn.isEnabled = true
+            newBtn.isEnabled = false
+        }
+        
+        if(scene.game.userAnswers[imgCount] == scene.game.correctAnswer[imgCount]){
+            correctLabel.isHidden = false
+            incorrectLabel.isHidden = true
+        }
+        else{
+            correctLabel.isHidden = true
+            incorrectLabel.isHidden = false
+        }
+    }
+    
+    @IBAction func PSPrev(_ sender: Any) {
+        imgCount -= 1
+        
+        PSDone.isHidden = true
+        pSNextArrow.isEnabled = true
+        
+        if(imgCount == 0){
+            pSPrevArrow.isEnabled = false
+        }
         pSImageView.image = UIImage(named: String(scene.game.questions[imgCount]))
         
         if(scene.game.userAnswers[imgCount] == 1){

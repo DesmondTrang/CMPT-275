@@ -13,6 +13,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import SpriteKit
 
 //User Creation screen UIViewController
 class UsernameViewController: UIViewController {
@@ -27,8 +28,6 @@ class UsernameViewController: UIViewController {
     @IBOutlet weak var forwardArrow: UIButton!
     
     typealias Request = ((_ value:Bool) -> ())
-
-    
 
     var name: String = ""
     var newName: String = ""
@@ -201,6 +200,7 @@ class UsernameViewController: UIViewController {
         else {
             self.confirm()
         }
+        
     }
     
     func confirm() {
@@ -234,7 +234,7 @@ class UsernameViewController: UIViewController {
                     db.collection("appUser").document(self.newName).setData(["userName" : self.newName,
                                                                              "bestScorePC" : 0,
                                                                              "bestScorePS" : 0,
-                                                                             "userLevel" : "easy"])
+                                                                             "userLevel" : "extreme"])
                     for month in 1...12 {
                         if (month == 1) {
                             db.collection("appUserGraph").document(self.newName).setData([String(month) :

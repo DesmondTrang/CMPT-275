@@ -16,6 +16,8 @@
 
 
 import SpriteKit
+import Firebase
+import FirebaseStorage
 
 //Manages the state of the game
 class GameManager{
@@ -182,31 +184,65 @@ class GameManager{
     var percentageCompleted: Double!
     var levelUpIfTwo: Int!
     var levelDownIfTwo: Int!
+    var appUser: String = "appUser"
     
     //Scene initalization
     init(scene: GameScene) {
         self.scene = scene
         InitalizeGame()
-        InitializePatternCompletion()
+        
     }
     
     //Initalizes variables for start of game
     private func InitalizeGame(){
-        timer = 0
-        gameStage = 0
-        paused = false
-        //forVersion 2
-        currentGameStage = 0
-        currentRound = 0
-        finalScore = 0
-        randomIndex = 0
-        multiplier = 0
-        userLevel = 0
-        PC = true
-        levelUpIfTwo = 0
-        levelDownIfTwo = 0
-        percentageCompleted = 0
-        PCnum = 0
+        
+        // writes username to core data
+        let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+        let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+        let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+        var getUserLevel: String = "easy" // default
+        userLevel = 0 // default
+        
+        // query firebase for specific data
+        let db = Firestore.firestore()
+        db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot!.documents {
+                    getUserLevel = document.get("userLevel") as! String
+                }
+                if (getUserLevel == "easy") {
+                    self.userLevel = 0
+                }
+                else if (getUserLevel == "normal") {
+                    self.userLevel = 1
+                }
+                else if (getUserLevel == "hard") {
+                    self.userLevel = 2
+                }
+                else if (getUserLevel == "extreme") {
+                    self.userLevel = 3
+                }
+                print (getUserLevel)
+                print (self.userLevel)
+                self.timer = 0
+                self.gameStage = 0
+                self.paused = false
+                //forVersion 2
+                self.currentGameStage = 0
+                self.currentRound = 0
+                self.finalScore = 0
+                self.randomIndex = 0
+                self.multiplier = 0
+                self.PC = true
+                self.levelUpIfTwo = 0
+                self.levelDownIfTwo = 0
+                self.percentageCompleted = 0
+                self.PCnum = 0
+                self.InitializePatternCompletion()
+            }
+        }
     }
     
     //Initializes gameboard for pattern completion game mode
@@ -216,6 +252,8 @@ class GameManager{
         PC = true
         
         //Generate random index based on userLevel
+        print( "here")
+        print (userLevel)
         randomIndex = Int(arc4random_uniform(UInt32(rounds[userLevel].count)))
         
         if(rounds[userLevel][randomIndex].count - startRounds[userLevel][randomIndex].count <= 5){

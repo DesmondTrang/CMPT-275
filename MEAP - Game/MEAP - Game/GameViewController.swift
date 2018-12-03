@@ -144,8 +144,32 @@ class GameViewController: UIViewController {
         menuView.isHidden = true
     }
     
-    //Shows History view
-    @IBAction func History(_ sender: Any) {
+    func networkAlertHistory(completion:@escaping Request) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "MEAP could not connect to the MEAP database. The network is down or unavailable.", message: "Make sure your network connection is active and try again.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            if Connectivity.isConnectedToInternet() {
+                print("Yes! internet is available.")
+                self.generateHistory()
+            }
+            else {
+                self.networkAlertHistory { (value) in
+                    print(value)
+                }
+                
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func generateHistory() {
         historyView.isHidden = false
         
         // default "Daily" view
@@ -156,6 +180,23 @@ class GameViewController: UIViewController {
         monthlyBtn.isUserInteractionEnabled = true
         UpdateGameScoreGraph(graphView: graphView)
         UpdateGamePlayGraph(graphView: graphView)
+    }
+    
+    
+    
+    //Shows History view
+    @IBAction func History(_ sender: Any) {
+        
+        if !Connectivity.isConnectedToInternet() {
+            print("No! internet is not available.")
+            self.networkAlertHistory { (value) in
+                print(value)
+            }
+        }
+            
+        else {
+            self.generateHistory()
+        }
     }
     
     //Shows Monthly Graph

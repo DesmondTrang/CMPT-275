@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.0)
   - BoringSSL (10.0.6):
     - BoringSSL/Implementation (= 10.0.6)
     - BoringSSL/Interface (= 10.0.6)
@@ -104,6 +105,7 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Charts
   - Firebase/Core
   - Firebase/Firestore
@@ -111,6 +113,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - BoringSSL
     - Charts
     - Firebase
@@ -130,6 +133,7 @@ SPEC REPOS:
     - Protobuf
 
 SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
@@ -148,6 +152,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: f486965d174ba7f5f3f351ea3cc439dd1458b249
+PODFILE CHECKSUM: 97979f3ab019e81aaf8e61c24e9e9f24078ffd53
 
 COCOAPODS: 1.5.3

@@ -11,6 +11,7 @@ target 'MEAP' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   pod 'Charts'
+  pod 'Alamofire'
 
   target 'MEAPTests' do
     # inherit! :search_paths

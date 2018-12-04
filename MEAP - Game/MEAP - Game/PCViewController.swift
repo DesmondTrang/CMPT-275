@@ -476,6 +476,7 @@ class PCViewController: UIViewController {
             pSScoreLabel.isHidden = false
             pSImageView.image = UIImage(named: String(scene.game.questions[0]))
             pSNextArrow.isHidden = false
+            pSPrevArrow.isHidden = false
             
             if(scene.game.userAnswers[0] == 1){
                 similarBtn.isEnabled = true

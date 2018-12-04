@@ -461,14 +461,6 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.18142545090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOt-TM-qv3" userLabel="PSNext">
-                                <rect key="frame" x="918" y="739" width="115" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Forward Button"/>
-                                <connections>
-                                    <action selector="PSNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Hsu-mk-3fY"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpJ-0i-fMJ" userLabel="PCNext">
                                 <rect key="frame" x="918" y="739" width="115" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -522,6 +514,14 @@
                                 <state key="normal" image="Next Button"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="show" id="wVw-aO-pUb"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOt-TM-qv3" userLabel="PSNext">
+                                <rect key="frame" x="591" y="777" width="115" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Forward Button"/>
+                                <connections>
+                                    <action selector="PSNext:" destination="wLl-VU-nV0" eventType="touchUpInside" id="Hsu-mk-3fY"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhm-Yb-8vg">
@@ -735,18 +735,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="320" height="290"/>
-        <image name="Axis" width="317" height="33"/>
+        <image name="0" width="641" height="581"/>
+        <image name="Axis" width="317" height="33.5"/>
         <image name="Back Arrow" width="100" height="100"/>
-        <image name="Backward Arrow" width="115" height="37"/>
-        <image name="Correct Username" width="346" height="254"/>
+        <image name="Backward Arrow" width="230" height="75"/>
+        <image name="Correct Username" width="346" height="254.5"/>
         <image name="Daily Button" width="181" height="44"/>
-        <image name="Enter Username" width="378" height="254"/>
-        <image name="Forward Button" width="115" height="37"/>
+        <image name="Enter Username" width="378" height="254.5"/>
+        <image name="Forward Button" width="115" height="37.5"/>
         <image name="History Button" width="300" height="62"/>
         <image name="How-To" width="100" height="100"/>
-        <image name="Incorrect Username" width="378" height="254"/>
-        <image name="Legend" width="144" height="82"/>
+        <image name="Incorrect Username" width="378" height="254.5"/>
+        <image name="Legend" width="144.5" height="82"/>
         <image name="Menu" width="100" height="100"/>
         <image name="Monthly Button" width="181" height="44"/>
         <image name="MuteMusic" width="300" height="62"/>
@@ -768,7 +768,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="prJ-SY-lAO"/>
         <segue reference="wVw-aO-pUb"/>
     </inferredMetricsTieBreakers>
 </document>

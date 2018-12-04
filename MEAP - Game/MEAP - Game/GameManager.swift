@@ -18,6 +18,7 @@
 import SpriteKit
 import Firebase
 import FirebaseStorage
+import FirebaseFirestore
 
 //Manages the state of the game
 class GameManager{
@@ -190,6 +191,7 @@ class GameManager{
     init(scene: GameScene) {
         self.scene = scene
         InitalizeGame()
+        InitializePatternCompletion()
         
     }
     
@@ -457,6 +459,32 @@ class GameManager{
     //Calculates score for pattern Separation
     func CalculateScorePS(){
         pSScore = correct*10
+        
+        // writes username to core data
+        let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+        let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+        let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+        var dbPSScore: Int = 0
+        
+        // query firebase for specific data
+        let db = Firestore.firestore()
+        db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot!.documents {
+                    dbPSScore = document.get("bestScorePS") as! Int
+                    
+                }
+            }
+            print ("PS")
+            print(dbPSScore)
+            print (self.pSScore)
+            if (self.pSScore > dbPSScore) {
+                db.collection("appUser").document(userName!).updateData(["bestScorePS" : self.pSScore])
+            }
+        }
+        
     }
     
     

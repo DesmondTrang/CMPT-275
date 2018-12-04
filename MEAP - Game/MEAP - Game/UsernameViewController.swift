@@ -13,6 +13,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import FirebaseFirestore
 import SpriteKit
 
 //User Creation screen UIViewController
@@ -44,115 +45,6 @@ class UsernameViewController: UIViewController {
         if FileManager.default.fileExists(atPath: userNamePath) {
             performSegue(withIdentifier: "HomeScreenSegue", sender: nil)
         }
-        
-        // query firebase for specific data
-        let db = Firestore.firestore()
-        db.collection("appUserGraph").whereField("userName", isEqualTo: "??").getDocuments { (snapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in snapshot!.documents {
-                    let userLevel = document.get("userLevel") as! String
-                    print(userLevel)
-                }
-            }
-        }
-        
-        // generate data for chart
-        Firestore.firestore().collection("appUserGraph").document("Graph").setData(["Dec" : [ "1" : [ "gamePlays" : 2,
-                                                                                 "averageScoresPC" : 80,
-                                                                                 "totalScoresPC" : 160,
-                                                                                 "averageScoresPS" : 60,
-                                                                                 "totalScoresPS" : 120],
-                                                                           "4" : [ "gamePlays" : 2,
-                                                                                 "averageScoresPC" : 80,
-                                                                                 "totalScoresPC" : 160,
-                                                                                 "averageScoresPS" : 60,
-                                                                                 "totalScoresPS" : 120],
-                                                                           "10" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "15" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "22" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "29" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120]
-            ],
-                                                                 "Nov" : [ "3" : [ "gamePlays" : 2,
-                                                                                 "averageScoresPC" : 80,
-                                                                                 "totalScoresPC" : 160,
-                                                                                 "averageScoresPS" : 60,
-                                                                                 "totalScoresPS" : 120],
-                                                                           "5" : [ "gamePlays" : 2,
-                                                                                 "averageScoresPC" : 80,
-                                                                                 "totalScoresPC" : 160,
-                                                                                 "averageScoresPS" : 60,
-                                                                                 "totalScoresPS" : 120],
-                                                                           "12" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "17" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "18" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "30" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120]
-            ],
-                                                                 "Oct" : [ "2" : [ "gamePlays" : 2,
-                                                                                 "averageScoresPC" : 80,
-                                                                                 "totalScoresPC" : 160,
-                                                                                 "averageScoresPS" : 60,
-                                                                                 "totalScoresPS" : 120],
-                                                                           "10" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "11" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "12" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "15" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120],
-                                                                           "20" : [ "gamePlays" : 2,
-                                                                                  "averageScoresPC" : 80,
-                                                                                  "totalScoresPC" : 160,
-                                                                                  "averageScoresPS" : 60,
-                                                                                  "totalScoresPS" : 120]
-            ]
-        ])
         
     }
 
@@ -234,7 +126,7 @@ class UsernameViewController: UIViewController {
                     db.collection("appUser").document(self.newName).setData(["userName" : self.newName,
                                                                              "bestScorePC" : 0,
                                                                              "bestScorePS" : 0,
-                                                                             "userLevel" : "extreme"])
+                                                                             "userLevel" : "easy"])
                     for month in 1...12 {
                         if (month == 1) {
                             db.collection("appUserGraph").document(self.newName).setData([String(month) :
@@ -317,7 +209,6 @@ class UsernameViewController: UIViewController {
                     let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
                     let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
                     try? self.newName.write(to: userNameUrl, atomically: false, encoding: .utf8)
-                    print(try? String(contentsOf: userNameUrl, encoding: .utf8))
                 }
             }
             

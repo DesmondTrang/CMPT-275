@@ -19,6 +19,9 @@
 import UIKit
 import SpriteKit
 import AVFoundation
+import FirebaseFirestore
+import Firebase
+import FirebaseStorage
 
 //Controls the Pattern Completion game view
 class PCViewController: UIViewController {
@@ -67,11 +70,14 @@ class PCViewController: UIViewController {
     var playerLayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
     var player: AVQueuePlayer!
+    var dbPCFinalScore: Int!
     
     var screenSize = UIScreen.main.bounds.size
     var cellChecker: Timer! //Timer used to update cells of the board
     
     var scene: GameScene! //Instance of the game scene
+    
+     var appUser: String = "appUser"
     
     //Loads GameScene into UIView and initalizes music player
     override func viewDidLoad() {
@@ -266,16 +272,69 @@ class PCViewController: UIViewController {
             bestValue.isHidden = false
             scene.game.FinishPatternCompletionRound()
             
+            
+            
             for i in 0...9{
                 scene.game.finalScore += scene.game.score[i]
+                dbPCFinalScore = scene.game.finalScore
+                if (i == 9) {
+                    // writes username to core data
+                    let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+                    let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+                    let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+                    var dbPCScore: Int = 0
+                    
+                    // query firebase for specific data
+                    let db = Firestore.firestore()
+                    db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in snapshot!.documents {
+                                dbPCScore = document.get("bestScorePC") as! Int
+                            }
+                        }
+                        print (self.dbPCFinalScore)
+                        print("db score")
+                        print(dbPCScore)
+                        if (self.dbPCFinalScore > dbPCScore) {
+                            db.collection("appUser").document(userName!).updateData(["bestScorePC" : self.dbPCFinalScore])
+                        }
+                    }
+                }
             }
+            
+            // writes username to core data
+            let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+            let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+            let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+            var dbPCScore: Int = 0
+            
+            // query firebase for specific data
+            let db = Firestore.firestore()
+            db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in snapshot!.documents {
+                        dbPCScore = document.get("bestScorePC") as! Int
+                    }
+                }
+                if (self.scene.game.finalScore > dbPCScore) {
+                    self.bestValue.text = String(self.scene.game.finalScore)
+                }
+                else {
+                    self.bestValue.text = String(dbPCScore)
+                }
+            }
+            
+            
             nextArrow.isHidden = true
             nextButton.isHidden = true
             pcHistoryNext.isHidden = false
             pcHistoryPrev.isHidden = false
             scene.InitiateSummary()
             scoreValue.text = String(scene.game.finalScore)
-            bestValue.text = String(scene.game.finalScore)//Best PC score
             scene.game.timeUpdate.invalidate()
             scene.game.currentRound += 1
             print(scene.game.currentRound)
@@ -319,6 +378,8 @@ class PCViewController: UIViewController {
     
     //Start PatternSepartion
     @IBAction func StartPs(_ sender: Any) {
+        pcHistoryNext.isHidden = true
+        pcHistoryPrev.isHidden = true
         patternCompletion.text = "Pattern Separation"
         scene.game.currentGameStage = 2
         scene.removeAllChildren()
@@ -380,10 +441,35 @@ class PCViewController: UIViewController {
             pSImageView.image = UIImage(named: String(scene.game.image))
         }
         else {
+            
+            // writes username to core data
+            let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+            let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+            let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+            var dbPSScore: Int = 0
+            
+            // query firebase for specific data
+            let db = Firestore.firestore()
+            db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in snapshot!.documents {
+                        dbPSScore = document.get("bestScorePS") as! Int
+                    }
+                }
+                if (self.scene.game.pSScore > dbPSScore) {
+                    self.pSBestVal.text = String(self.scene.game.pSScore)
+                }
+                else {
+                    self.pSBestVal.text = String(dbPSScore)//PS best score
+                }
+            }
+            
             scene.game.currentGameStage = 3
             scene.game.CalculateScorePS()
             pSScoreVal.text = String(scene.game.pSScore)
-            pSBestVal.text = String(scene.game.pSScore)//PS best score
+           
             pSBestVal.isHidden = false
             pSScoreVal.isHidden = false
             pSBestLabel.isHidden = false

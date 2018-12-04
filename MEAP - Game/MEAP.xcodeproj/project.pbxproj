@@ -11,7 +11,7 @@
 		63247738D24B4F9E4C220FDC /* Pods_MEAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3E0C45A3936900A01ED95E /* Pods_MEAPUITests.framework */; };
 		92294F1A218ADEC700630436 /* PCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92294F19218ADEC700630436 /* PCViewController.swift */; };
 		922D3A5721A26C57004F646E /* PSPicture in Resources */ = {isa = PBXBuildFile; fileRef = 922D3A5621A26C57004F646E /* PSPicture */; };
-		923B9026218FDE550032D8B4 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 923B9025218FDE540032D8B4 /* tutorial.mp4 */; };
+		923B9026218FDE550032D8B4 /* tutorialPC.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 923B9025218FDE540032D8B4 /* tutorialPC.mp4 */; };
 		9F6B66FF99105213B57679BC /* Pods_MEAP_MEAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED5A68FA423ACD554066D6B /* Pods_MEAP_MEAPUITests.framework */; };
 		B17B4E922182650A00F8101A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B4E912182650A00F8101A /* AppDelegate.swift */; };
 		B17B4E942182650A00F8101A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B17B4E932182650A00F8101A /* GameScene.sks */; };
@@ -30,6 +30,7 @@
 		F916A3C021A359FD0022C063 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916A3BF21A359FD0022C063 /* UsernameViewController.swift */; };
 		F916A3C321A35A380022C063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F916A3C121A35A380022C063 /* Main.storyboard */; };
 		F9CFBAB821B5CA3200B6B027 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CFBAB721B5CA3200B6B027 /* NetworkManager.swift */; };
+		F9CFBABB21B5E52D00B6B027 /* tutorialPS.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F9CFBABA21B5E52D00B6B027 /* tutorialPS.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,7 @@
 		89E864FB223B33CEAEF54AAD /* Pods-MEAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPTests/Pods-MEAPTests.release.xcconfig"; sourceTree = "<group>"; };
 		92294F19218ADEC700630436 /* PCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCViewController.swift; sourceTree = "<group>"; };
 		922D3A5621A26C57004F646E /* PSPicture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PSPicture; sourceTree = "<group>"; };
-		923B9025218FDE540032D8B4 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
+		923B9025218FDE540032D8B4 /* tutorialPC.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorialPC.mp4; sourceTree = "<group>"; };
 		9FC43F48F38B666FE7D3022C /* Pods-MEAP-MEAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPUITests/Pods-MEAP-MEAPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A3C36F7B24AA4176EAB58B40 /* Pods-MEAP-MEAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAP-MEAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEAP-MEAPTests/Pods-MEAP-MEAPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B17B4E8E2182650A00F8101A /* MEAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,10 +75,10 @@
 		B17B4E9E2182650B00F8101A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B17B4EA32182650B00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EA82182650B00F8101A /* MEAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEAP___GameTests.swift; sourceTree = "<group>"; };
+		B17B4EAC2182650B00F8101A /* MEAP___GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameTests.swift"; sourceTree = "<group>"; };
 		B17B4EAE2182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EB32182650C00F8101A /* MEAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MEAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEAP___GameUITests.swift; sourceTree = "<group>"; };
+		B17B4EB72182650C00F8101A /* MEAP___GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MEAP___GameUITests.swift"; sourceTree = "<group>"; };
 		B17B4EB92182650C00F8101A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17B4EC5218266A800F8101A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		B8320DB7922A79491DACF910 /* Pods-MEAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEAPUITests/Pods-MEAPUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		F916A3BF21A359FD0022C063 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		F916A3C221A35A380022C063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9CFBAB721B5CA3200B6B027 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F9CFBABA21B5E52D00B6B027 /* tutorialPS.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorialPS.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +179,8 @@
 			children = (
 				F9CFBAB721B5CA3200B6B027 /* NetworkManager.swift */,
 				F916A3B721A34C290022C063 /* GoogleService-Info.plist */,
-				923B9025218FDE540032D8B4 /* tutorial.mp4 */,
+				923B9025218FDE540032D8B4 /* tutorialPC.mp4 */,
+				F9CFBABA21B5E52D00B6B027 /* tutorialPS.mp4 */,
 				B17B4E912182650A00F8101A /* AppDelegate.swift */,
 				B17B4E932182650A00F8101A /* GameScene.sks */,
 				B17B4E952182650A00F8101A /* Actions.sks */,
@@ -341,9 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F916A3BE21A3599A0022C063 /* LaunchScreen.storyboard in Resources */,
-				923B9026218FDE550032D8B4 /* tutorial.mp4 in Resources */,
+				923B9026218FDE550032D8B4 /* tutorialPC.mp4 in Resources */,
 				922D3A5721A26C57004F646E /* PSPicture in Resources */,
 				B17B4E942182650A00F8101A /* GameScene.sks in Resources */,
+				F9CFBABB21B5E52D00B6B027 /* tutorialPS.mp4 in Resources */,
 				B17B4E9F2182650B00F8101A /* Assets.xcassets in Resources */,
 				C5B4FFB8218A8BE100E6899B /* backgroundMusic.mp3 in Resources */,
 				F916A3C321A35A380022C063 /* Main.storyboard in Resources */,

@@ -19,6 +19,9 @@
 import UIKit
 import SpriteKit
 import AVFoundation
+import FirebaseFirestore
+import Firebase
+import FirebaseStorage
 
 //Controls the Pattern Completion game view
 class PCViewController: UIViewController {
@@ -34,6 +37,7 @@ class PCViewController: UIViewController {
     
     typealias Request = ((_ value:Bool) -> ())
     
+    @IBOutlet weak var pcHistoryPrev: UIButton!
     @IBOutlet weak var pcHistoryNext: UIButton!
     @IBOutlet weak var patternCompletion: UILabel!
     @IBOutlet weak var pCLabel: UILabel!
@@ -50,11 +54,14 @@ class PCViewController: UIViewController {
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var incorrectLabel: UILabel!
     @IBOutlet weak var pSNextArrow: UIButton!
+    @IBOutlet weak var pSPrevArrow: UIButton!
     @IBOutlet weak var pCNextArrow: UIButton!
     @IBOutlet weak var pSScoreLabel: UILabel!
     @IBOutlet weak var pSScoreVal: UILabel!
     @IBOutlet weak var pSBestVal: UILabel!
     @IBOutlet weak var pSBestLabel: UILabel!
+    @IBOutlet weak var PSDone: UIButton!
+
     var imgCount = 0
     
     
@@ -63,11 +70,14 @@ class PCViewController: UIViewController {
     var playerLayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
     var player: AVQueuePlayer!
+    var dbPCFinalScore: Int!
     
     var screenSize = UIScreen.main.bounds.size
     var cellChecker: Timer! //Timer used to update cells of the board
     
     var scene: GameScene! //Instance of the game scene
+    
+     var appUser: String = "appUser"
     
     //Loads GameScene into UIView and initalizes music player
     override func viewDidLoad() {
@@ -91,13 +101,13 @@ class PCViewController: UIViewController {
     }
     
     //plays and loops "Tutorial.mp4"
-    private func PlayVideo(){
+    private func PlayVideo(name: String){
         
         screenSize = UIScreen.main.bounds.size
         //Plays "Tutorial.mp4"
-        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        playerItem = AVPlayerItem(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
-        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "tutorial", ofType: ".mp4")!))
+        player = AVQueuePlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: ".mp4")!))
         
         playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
         
@@ -109,6 +119,8 @@ class PCViewController: UIViewController {
         player.play()
         
     }
+    
+    
     
     //Stops music when screen is left
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,7 +139,24 @@ class PCViewController: UIViewController {
     @IBAction func Tutorial(_ sender: Any) {
         scene.game.paused = true
         tutorialView.isHidden = false
-        PlayVideo()
+        PlayVideo(name: "tutorialPC")
+        
+    }
+    @IBAction func PatternSeparationTutorial(_ sender: Any) {
+        
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPS")
+    }
+    
+    @IBAction func PatternCompletionTutorial(_ sender: Any) {
+        
+        playerLayer.removeFromSuperlayer()
+        player.replaceCurrentItem(with: nil)
+        
+        PlayVideo(name: "tutorialPC")
+        
         
     }
     
@@ -243,15 +272,69 @@ class PCViewController: UIViewController {
             bestValue.isHidden = false
             scene.game.FinishPatternCompletionRound()
             
+            
+            
             for i in 0...9{
                 scene.game.finalScore += scene.game.score[i]
+                dbPCFinalScore = scene.game.finalScore
+                if (i == 9) {
+                    // writes username to core data
+                    let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+                    let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+                    let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+                    var dbPCScore: Int = 0
+                    
+                    // query firebase for specific data
+                    let db = Firestore.firestore()
+                    db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in snapshot!.documents {
+                                dbPCScore = document.get("bestScorePC") as! Int
+                            }
+                        }
+                        print (self.dbPCFinalScore)
+                        print("db score")
+                        print(dbPCScore)
+                        if (self.dbPCFinalScore > dbPCScore) {
+                            db.collection("appUser").document(userName!).updateData(["bestScorePC" : self.dbPCFinalScore])
+                        }
+                    }
+                }
             }
+            
+            // writes username to core data
+            let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+            let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+            let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+            var dbPCScore: Int = 0
+            
+            // query firebase for specific data
+            let db = Firestore.firestore()
+            db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in snapshot!.documents {
+                        dbPCScore = document.get("bestScorePC") as! Int
+                    }
+                }
+                if (self.scene.game.finalScore > dbPCScore) {
+                    self.bestValue.text = String(self.scene.game.finalScore)
+                }
+                else {
+                    self.bestValue.text = String(dbPCScore)
+                }
+            }
+            
+            
             nextArrow.isHidden = true
             nextButton.isHidden = true
             pcHistoryNext.isHidden = false
+            pcHistoryPrev.isHidden = false
             scene.InitiateSummary()
             scoreValue.text = String(scene.game.finalScore)
-            bestValue.text = String(scene.game.finalScore)
             scene.game.timeUpdate.invalidate()
             scene.game.currentRound += 1
             print(scene.game.currentRound)
@@ -270,14 +353,33 @@ class PCViewController: UIViewController {
     @IBAction func PCHistoryNext(_ sender: Any) {
         scene.game.PCnum += 1
         scene.InitiateSummary()
+        if(scene.game.PCnum > 0){
+            pcHistoryPrev.isEnabled = true
+        }
         if(scene.game.PCnum >= 9){
             nextArrow.isHidden = false
-            pcHistoryNext.isHidden = true
+            pcHistoryNext.isEnabled = false
+        }
+        else{
+            pcHistoryNext.isEnabled = true
+            nextArrow.isHidden = true
+        }
+    }
+    
+    @IBAction func PCHistoryPrev(_ sender: Any) {
+        scene.game.PCnum -= 1
+        scene.InitiateSummary()
+        nextArrow.isHidden = true
+        pcHistoryNext.isEnabled = true
+        if(scene.game.PCnum == 0){
+            pcHistoryPrev.isEnabled = false
         }
     }
     
     //Start PatternSepartion
     @IBAction func StartPs(_ sender: Any) {
+        pcHistoryNext.isHidden = true
+        pcHistoryPrev.isHidden = true
         patternCompletion.text = "Pattern Separation"
         scene.game.currentGameStage = 2
         scene.removeAllChildren()
@@ -339,16 +441,42 @@ class PCViewController: UIViewController {
             pSImageView.image = UIImage(named: String(scene.game.image))
         }
         else {
+            
+            // writes username to core data
+            let userNamePath: String = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/\(self.appUser)"
+            let userNameUrl: URL = URL(fileURLWithPath: userNamePath)
+            let userName = try? String(contentsOf: userNameUrl, encoding: .utf8)
+            var dbPSScore: Int = 0
+            
+            // query firebase for specific data
+            let db = Firestore.firestore()
+            db.collection("appUser").whereField("userName", isEqualTo: userName!).getDocuments { (snapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in snapshot!.documents {
+                        dbPSScore = document.get("bestScorePS") as! Int
+                    }
+                }
+                if (self.scene.game.pSScore > dbPSScore) {
+                    self.pSBestVal.text = String(self.scene.game.pSScore)
+                }
+                else {
+                    self.pSBestVal.text = String(dbPSScore)//PS best score
+                }
+            }
+            
             scene.game.currentGameStage = 3
             scene.game.CalculateScorePS()
             pSScoreVal.text = String(scene.game.pSScore)
-            pSBestVal.text = String(scene.game.pSScore)
+           
             pSBestVal.isHidden = false
             pSScoreVal.isHidden = false
             pSBestLabel.isHidden = false
             pSScoreLabel.isHidden = false
             pSImageView.image = UIImage(named: String(scene.game.questions[0]))
             pSNextArrow.isHidden = false
+            pSPrevArrow.isHidden = false
             
             if(scene.game.userAnswers[0] == 1){
                 similarBtn.isEnabled = true
@@ -381,10 +509,50 @@ class PCViewController: UIViewController {
     @IBAction func PSNext(_ sender: Any) {
         imgCount+=1
         
+        pSPrevArrow.isEnabled = true
+        
         if(imgCount == 14){
-            performSegue(withIdentifier: "ReturnHome", sender: self)
+            PSDone.isHidden = false
+            pSNextArrow.isEnabled = false
         }
         
+        pSImageView.image = UIImage(named: String(scene.game.questions[imgCount]))
+        
+        if(scene.game.userAnswers[imgCount] == 1){
+            similarBtn.isEnabled = true
+            oldBtn.isEnabled = false
+            newBtn.isEnabled = false
+        }
+        else if(scene.game.userAnswers[imgCount] == 2){
+            similarBtn.isEnabled = false
+            oldBtn.isEnabled = false
+            newBtn.isEnabled = true
+        }
+        else{
+            similarBtn.isEnabled = false
+            oldBtn.isEnabled = true
+            newBtn.isEnabled = false
+        }
+        
+        if(scene.game.userAnswers[imgCount] == scene.game.correctAnswer[imgCount]){
+            correctLabel.isHidden = false
+            incorrectLabel.isHidden = true
+        }
+        else{
+            correctLabel.isHidden = true
+            incorrectLabel.isHidden = false
+        }
+    }
+    
+    @IBAction func PSPrev(_ sender: Any) {
+        imgCount -= 1
+        
+        PSDone.isHidden = true
+        pSNextArrow.isEnabled = true
+        
+        if(imgCount == 0){
+            pSPrevArrow.isEnabled = false
+        }
         pSImageView.image = UIImage(named: String(scene.game.questions[imgCount]))
         
         if(scene.game.userAnswers[imgCount] == 1){
